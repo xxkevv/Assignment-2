@@ -11,53 +11,7 @@
 </head>
 
     <!-- Navigation bar -->
-    <header class="header">
-        <nav class="navigator">
-            <div class="left-group">
-                <span class="logo2"><img src="IMAGE/logo.jpg" alt="Root Flower Logo"></span>
-                <span class="logo">Root Flower</span>
-            </div>
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbutton">&#9776;</label>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-
-                <li class="dropdown"> 
-                    <a href="allproducts.html">Product</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="product1.html">Hand-bouquet</a></li>
-                        <li><a href="product2.html">CNY Decoration</a></li>
-                        <li><a href="product3.html">Grand Opening</a></li>
-                        <li><a href="product4.html">Graduation</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown"> 
-                    <a href="#">Activities</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="workshop.html">Workshop</a></li>
-                        <li><a href="promotion.html">Promotion</a></li>  
-                    </ul>
-                </li>
-
-                <li class="dropdown"> 
-                    <a href="#" class="tabsactive">Register</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="register.html">Workshop</a></li>
-                        <li><a href="membership.html">Membership</a></li>   
-                    </ul>
-                </li>
-
-                <li><a href="enquiry.html">Enquiry</a></li>
-
-                <li>
-                    <a href="login.html">
-                        <img src="IMAGE/login.svg" alt="Login"> Login
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <?php include("navigation.php"); ?>
 
     <main class="membership-reg-container">
         <section class="membership-text">

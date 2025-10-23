@@ -7,58 +7,12 @@
     <meta name="author" content="Kevinn Jose, Jiang Yu, Vincent, Ahmed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Product Pages - Graduation</title>
+    <title>Product Pages - Hand-bouquet</title>
 </head>
 <body>
 
 <!-- Navigation bar -->
-    <header class="header">
-    <nav class="navigator">
-        <div class="left-group">
-            <span class="logo2"><img src="IMAGE/logo.jpg" alt="Root Flower Logo"></span>
-            <span class="logo">Root Flower</span>
-        </div>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbutton">
-         &#9776;
-        </label>
-        <ul>
-            <li> <a href="index.html">Home</a></li>
-
-            <li class="dropdown"> 
-                <a href="allproducts.html" class="tabsactive">Product</a>
-                <ul class="dropdown-menu">
-                    <li><a href="product1.html">Hand-bouquet</a></li>
-                    <li><a href="product2.html">CNY decoration</a></li>
-                    <li><a href="product3.html">Grand Opening</a></li>
-                    <li><a href="product4.html">Graduation</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown"> 
-                <a href="#">Activities</a>
-                <ul class="dropdown-menu">
-                    <li><a href="workshop.html">Workshop</a></li>
-                    <li><a href="promotion.html">Promotion</a></li>  
-                </ul>
-            </li>
-            <li class="dropdown"> 
-                <a href="#">Register</a>
-                <ul class="dropdown-menu">
-                    <li><a href="register.html">Workshop</a></li>
-                    <li><a href="membership.html">Membership</a></li>   
-                </ul>
-            </li>
-
-            <li> <a href="enquiry.html">Enquiry</a></li>
-
-            <li> <a href="login.html">
-                <img src="IMAGE/login.svg" alt="Login"> Login
-                </a>
-            </li>
-        </ul>
-    </nav>
-    </header>
+    <?php include("navigation.php"); ?>
 
     <!-- Main contents -->
     <main class="main-content">
@@ -66,21 +20,49 @@
         <section class="product-section">
             <div class="section-header">
                 <h1>Latest Products</h1>
-            </div>
-            
+            </div>        
             <div class="product-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
+                    <div class="discount-badge"><p>-5%</p></div>
                     <figure>
-                        <img src="IMAGE/graduation1.jpg" alt="Graduation 1" class="product-img">
-                        <figcaption>Graduation Bouquet with premium sunflower</figcaption>
+                        <img src="IMAGE/hb1.jpg" alt="HB 1" class="product-img">
+                        <figcaption>Mix Handtied Flowers Bouquet with premium fresh flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <h2 class="product-name">Mix Flowers Bouquet</h2>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium Sunflower</dd>
+                        <dd>Premium flowers</dd>
+                    </div>
+                    <div>
+                        <dt>Delivery:</dt>
+                        <dd>Same day available</dd>
+                    </div>
+                    </dl>
+                    <div class="product-price">
+                        <span class="current-price">RM42.75</span>
+                        <span class="original-price">RM45.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
+                        <button class="btn add-to-cart">Add To Cart</button>
+                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="discount-badge"><p>5%</p></div>
+                    <figure>
+                        <img src="IMAGE/hb2.jpg" alt="HB 2" class="product-img">
+                        <figcaption>Bridal ROM Bouquet with premium flowers</figcaption>
+                    </figure>
+                    <h3 class="product-name">Bridal Bouquet</h3>
+                    <dl class="product-specs">
+                    <div>
+                        <dt>Type:</dt>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -98,18 +80,76 @@
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
+                <!-- Product 3 -->
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/graduation2.jpg" alt="Graduation 2" class="product-img">
-                        <figcaption>Graduation Bouquet with premium pompom chrysanthemum</figcaption>
+                        <img src="IMAGE/hb3.jpg" alt="HB 3" class="product-img">
+                        <figcaption>Roses Bouquet with premium roses </figcaption>
                     </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <h3 class="product-name">Roses Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium chrysanthemum</dd>
+                        <dd>Premium roses</dd>
+                    </div>
+                    <div>
+                        <dt>Delivery:</dt>
+                        <dd>Same day available</dd>
+                    </div>
+                    </dl>
+                    <div class="product-price">
+                        <span class="current-price">RM45.60</span>
+                        <span class="original-price">RM48.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
+                        <button class="btn add-to-cart">Add To Cart</button>
+                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="discount-badge"><p>5%</p></div>
+                    <figure>
+                        <img src="IMAGE/hb4.jpg" alt="HB 4" class="product-img">
+                        <figcaption>Gerbera Mix Bouquet with premium daisy</figcaption>
+                    </figure>
+                    <h3 class="product-name">Gerbera Mix</h3>
+                    <dl class="product-specs">
+                    <div>
+                        <dt>Type:</dt>
+                        <dd>Premium daisy</dd>
+                    </div>
+                    <div>
+                        <dt>Delivery:</dt>
+                        <dd>Same day available</dd>
+                    </div>
+                    </dl>
+                    <div class="product-price">
+                        <span class="current-price">RM39.90</span>
+                        <span class="original-price">RM42.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
+                        <button class="btn add-to-cart">Add To Cart</button>
+                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="discount-badge"><p>5%</p></div>
+                    <figure>
+                        <img src="IMAGE/hb5.jpg" alt="HB 5" class="product-img">
+                        <figcaption>Soap Roses Bouquet with premium roses</figcaption>
+                    </figure>
+                    <h3 class="product-name">Soap Roses Bouquet</h3>
+                    <dl class="product-specs">
+                    <div>
+                        <dt>Type:</dt>
+                        <dd>Premium roses</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -127,105 +167,18 @@
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation3.jpg" alt="Graduation 3" class="product-img">
-                        <figcaption>Graduation Bouquet with premium baby's breath flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Baby's breath flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM60.00</span>
-                        <span class="original-price">RM63.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation4.jpg" alt="Graduation 4" class="product-img">
-                        <figcaption>Graduation Bouquet with premium dyed baby's breath flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium baby's breath flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM62.70</span>
-                        <span class="original-price">RM66.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation5.jpg" alt="Graduation 5" class="product-img">
-                        <figcaption>Graduation Bouquet with premium sunflower and baby's breath flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium sunflower</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM49.40</span>
-                        <span class="original-price">RM52.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
                 <!-- Product 6 -->
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/graduation6.jpg" alt="Graduation 6" class="product-img">
-                        <figcaption>Graduation Bouquet with premium pompom chrysanthemum</figcaption>
+                        <img src="IMAGE/hb6.jpg" alt="HB 6" class="product-img">
+                        <figcaption>Bridal ROM Bouquet with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <h3 class="product-name">Bridal Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium chrysanthemum</dd>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -233,8 +186,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM50.35</span>
-                        <span class="original-price">RM53.00</span>
+                        <span class="current-price">RM46.55</span>
+                        <span class="original-price">RM49.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -247,14 +200,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/graduation7.jpg" alt="Graduation 7" class="product-img">
-                        <figcaption>Graduation 7 with premium pink chrysanthemum</figcaption>
+                        <img src="IMAGE/hb7.jpg" alt="HB 7" class="product-img">
+                        <figcaption>Cry Baby Bouquet with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <h3 class="product-name">Cry Baby Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium pink chrysanthemum</dd>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -262,8 +215,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM51.30</span>
-                        <span class="original-price">RM54.00</span>
+                        <span class="current-price">RM44.65</span>
+                        <span class="original-price">RM47.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -274,16 +227,16 @@
 
                 <!-- Product 8 -->
                 <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
+                    <div class="discount-badge"><p>-5%</p></div>
                     <figure>
-                        <img src="IMAGE/graduation8.jpg" alt="Graduation 8" class="product-img">
-                        <figcaption>Graduation Bouquet with premium sunflower </figcaption>
+                        <img src="IMAGE/hb8.jpg" alt="HB 8" class="product-img">
+                        <figcaption>Sunflower Bouquet with premium sunflowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <h3 class="product-name">Sunflower Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium sunflower</dd>
+                        <dd>Premium sunflowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -291,8 +244,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM55.70</span>
-                        <span class="original-price">RM58.65</span>
+                        <span class="current-price">RM40.85</span>
+                        <span class="original-price">RM43.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -303,15 +256,14 @@
             </div>
         </section>
 
-         <!-- Aside right-->
-         <aside class="sidebar">
+        <aside class="sidebar">
             <h2>Flower Categories</h2>
             <ol class="category-list">
                 <li><a href="allproducts.html" class="category-item">All Flowers</a></li>
-                <li><a href="product1.html" class="category-item">Handtied Bouquet</a></li>
+                <li><a href="product1.html" class="category-item active">Handtied Bouquet</a></li>
                 <li><a href="product2.html" class="category-item">CNY Decoration</a></li>
                 <li><a href="product3.html" class="category-item">Grand Opening</a></li>
-                <li><a href="product4.html" class="category-item active">Graduation</a></li>
+                <li><a href="product4.html" class="category-item">Graduation</a></li>
             </ol>
             <br>
             <div class="sidebar-table">
@@ -322,13 +274,16 @@
                     </tr>
                     <tr>
                         <th>Membership</th>
-                        <td>Up to 10% Discount</td>
+                        <td>Up to 5% Discount</td>
                 </table>
             </div>
         </aside>
+
+
+        
     </main>
     <br>
-   
+    
     <!-- Footer  -->
     <footer class="footer-content">
     <div class="footer-container">

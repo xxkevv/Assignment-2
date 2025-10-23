@@ -7,58 +7,12 @@
     <meta name="author" content="Kevinn Jose, Jiang Yu, Vincent, Ahmed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Product Pages - Hand-bouquet</title>
+    <title>Product Pages - Grand Opening </title>
 </head>
 <body>
 
 <!-- Navigation bar -->
-    <header class="header">
-    <nav class="navigator">
-        <div class="left-group">
-            <span class="logo2"><img src="IMAGE/logo.jpg" alt="Root Flower Logo"></span>
-            <span class="logo">Root Flower</span>
-        </div>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbutton">
-         &#9776;
-        </label>
-        <ul>
-            <li> <a href="index.html">Home</a></li>
-
-            <li class="dropdown"> 
-                <a href="allproducts.html" class="tabsactive">Product</a>
-                <ul class="dropdown-menu">
-                    <li><a href="product1.html">Hand-bouquet</a></li>
-                    <li><a href="product2.html">CNY decoration</a></li>
-                    <li><a href="product3.html">Grand Opening</a></li>
-                    <li><a href="product4.html">Graduation</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown"> 
-                <a href="#">Activities</a>
-                <ul class="dropdown-menu">
-                    <li><a href="workshop.html">Workshop</a></li>
-                    <li><a href="promotion.html">Promotion</a></li>  
-                </ul>
-            </li>
-            <li class="dropdown"> 
-                <a href="#">Register</a>
-                <ul class="dropdown-menu">
-                    <li><a href="register.html">Workshop</a></li>
-                    <li><a href="membership.html">Membership</a></li>   
-                </ul>
-            </li>
-
-            <li> <a href="enquiry.html">Enquiry</a></li>
-
-            <li> <a href="login.html">
-                <img src="IMAGE/login.svg" alt="Login"> Login
-                </a>
-            </li>
-        </ul>
-    </nav>
-    </header>
+    <?php include("navigation.php"); ?>
 
     <!-- Main contents -->
     <main class="main-content">
@@ -66,20 +20,21 @@
         <section class="product-section">
             <div class="section-header">
                 <h1>Latest Products</h1>
-            </div>        
+            </div>
+            
             <div class="product-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
-                    <div class="discount-badge"><p>-5%</p></div>
+                    <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb1.jpg" alt="HB 1" class="product-img">
-                        <figcaption>Mix Handtied Flowers Bouquet with premium fresh flowers</figcaption>
+                        <img src="IMAGE/grandopening1.jpg" alt="Grand Opening 1" class="product-img">
+                        <figcaption>Opening Flower Stands with premium sunflower</figcaption>
                     </figure>
-                    <h2 class="product-name">Mix Flowers Bouquet</h2>
+                    <h3 class="product-name">Grand Opening Flowers</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
+                        <dd>Premium sunflower</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -87,8 +42,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM42.75</span>
-                        <span class="original-price">RM45.00</span>
+                        <span class="current-price">RM57.00</span>
+                        <span class="original-price">RM60.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -101,10 +56,10 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb2.jpg" alt="HB 2" class="product-img">
-                        <figcaption>Bridal ROM Bouquet with premium flowers</figcaption>
+                        <img src="IMAGE/grandopening2.jpg" alt="Grand Opening 2" class="product-img">
+                        <figcaption>Opening Flower Stands with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Bridal Bouquet</h3>
+                    <h3 class="product-name">Grand Opening Flowers</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
@@ -116,8 +71,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM47.50</span>
-                        <span class="original-price">RM50.00</span>
+                        <span class="current-price">RM62.70</span>
+                        <span class="original-price">RM66.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -130,14 +85,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb3.jpg" alt="HB 3" class="product-img">
-                        <figcaption>Roses Bouquet with premium roses </figcaption>
+                        <img src="IMAGE/grandopening3.jpg" alt="Grand Opening 3" class="product-img">
+                        <figcaption>Opening Flower Stands with premium flowers </figcaption>
                     </figure>
-                    <h3 class="product-name">Roses Bouquet</h3>
+                    <h3 class="product-name">Grand Opening Basket</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium roses</dd>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -145,8 +100,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM45.60</span>
-                        <span class="original-price">RM48.00</span>
+                        <span class="current-price">RM43.70</span>
+                        <span class="original-price">RM46.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -159,14 +114,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb4.jpg" alt="HB 4" class="product-img">
-                        <figcaption>Gerbera Mix Bouquet with premium daisy</figcaption>
+                        <img src="IMAGE/grandopening4.jpg" alt="Grand Opening 4" class="product-img">
+                        <figcaption>Opening Flower Stands with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Gerbera Mix</h3>
+                    <h3 class="product-name">Grand Opening Stands</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium daisy</dd>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -174,8 +129,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM39.90</span>
-                        <span class="original-price">RM42.00</span>
+                        <span class="current-price">RM59.00</span>
+                        <span class="original-price">RM62.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -188,14 +143,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb5.jpg" alt="HB 5" class="product-img">
-                        <figcaption>Soap Roses Bouquet with premium roses</figcaption>
+                        <img src="IMAGE/grandopening5.jpg" alt="Grand Opening 5" class="product-img">
+                        <figcaption>Grand Opening Stands with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Soap Roses Bouquet</h3>
+                    <h3 class="product-name">Grand Opening Stands</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium roses</dd>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -203,8 +158,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM38.00</span>
-                        <span class="original-price">RM40.00</span>
+                        <span class="current-price">RM53.40</span>
+                        <span class="original-price">RM56.25</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -217,10 +172,10 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb6.jpg" alt="HB 6" class="product-img">
-                        <figcaption>Bridal ROM Bouquet with premium flowers</figcaption>
+                        <img src="IMAGE/grandopening6.jpg" alt="Grand Opening 6" class="product-img">
+                        <figcaption>Grand Opening Basket with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Bridal Bouquet</h3>
+                    <h3 class="product-name">Grand Opening Basket</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
@@ -232,8 +187,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM46.55</span>
-                        <span class="original-price">RM49.00</span>
+                        <span class="current-price">RM36.60</span>
+                        <span class="original-price">RM38.50</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -246,10 +201,10 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb7.jpg" alt="HB 7" class="product-img">
-                        <figcaption>Cry Baby Bouquet with premium flowers</figcaption>
+                        <img src="IMAGE/grandopening7.jpg" alt="Grand Opening 7" class="product-img">
+                        <figcaption>Grand Opening Basket with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Cry Baby Bouquet</h3>
+                    <h3 class="product-name">Grand Opening Basket</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
@@ -261,8 +216,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM44.65</span>
-                        <span class="original-price">RM47.00</span>
+                        <span class="current-price">RM36.50</span>
+                        <span class="original-price">RM38.40</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -273,16 +228,16 @@
 
                 <!-- Product 8 -->
                 <div class="product-card">
-                    <div class="discount-badge"><p>-5%</p></div>
+                    <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/hb8.jpg" alt="HB 8" class="product-img">
-                        <figcaption>Sunflower Bouquet with premium sunflowers</figcaption>
+                        <img src="IMAGE/grandopening8.jpg" alt="Grand Opening 8" class="product-img">
+                        <figcaption>Grand Opening Basket with premium flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Sunflower Bouquet</h3>
+                    <h3 class="product-name">Grand Opening Basket</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium sunflowers</dd>
+                        <dd>Premium flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -290,8 +245,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM40.85</span>
-                        <span class="original-price">RM43.00</span>
+                        <span class="current-price">RM32.80</span>
+                        <span class="original-price">RM34.50</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -302,13 +257,14 @@
             </div>
         </section>
 
-        <aside class="sidebar">
+         <!-- Aside right-->
+         <aside class="sidebar">
             <h2>Flower Categories</h2>
             <ol class="category-list">
                 <li><a href="allproducts.html" class="category-item">All Flowers</a></li>
-                <li><a href="product1.html" class="category-item active">Handtied Bouquet</a></li>
+                <li><a href="product1.html" class="category-item">Handtied Bouquet</a></li>
                 <li><a href="product2.html" class="category-item">CNY Decoration</a></li>
-                <li><a href="product3.html" class="category-item">Grand Opening</a></li>
+                <li><a href="product3.html" class="category-item active">Grand Opening</a></li>
                 <li><a href="product4.html" class="category-item">Graduation</a></li>
             </ol>
             <br>
@@ -320,13 +276,10 @@
                     </tr>
                     <tr>
                         <th>Membership</th>
-                        <td>Up to 5% Discount</td>
+                        <td>Up to 10% Discount</td>
                 </table>
             </div>
         </aside>
-
-
-        
     </main>
     <br>
     

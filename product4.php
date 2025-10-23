@@ -7,58 +7,12 @@
     <meta name="author" content="Kevinn Jose, Jiang Yu, Vincent, Ahmed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>Product Pages - Grand Opening </title>
+    <title>Product Pages - Graduation</title>
 </head>
 <body>
 
 <!-- Navigation bar -->
-    <header class="header">
-    <nav class="navigator">
-        <div class="left-group">
-            <span class="logo2"><img src="IMAGE/logo.jpg" alt="Root Flower Logo"></span>
-            <span class="logo">Root Flower</span>
-        </div>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbutton">
-         &#9776;
-        </label>
-        <ul>
-            <li> <a href="index.html">Home</a></li>
-
-            <li class="dropdown"> 
-                <a href="allproducts.html" class="tabsactive">Product</a>
-                <ul class="dropdown-menu">
-                    <li><a href="product1.html">Hand-bouquet</a></li>
-                    <li><a href="product2.html">CNY decoration</a></li>
-                    <li><a href="product3.html">Grand Opening</a></li>
-                    <li><a href="product4.html">Graduation</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown"> 
-                <a href="#">Activities</a>
-                <ul class="dropdown-menu">
-                    <li><a href="workshop.html">Workshop</a></li>
-                    <li><a href="promotion.html">Promotion</a></li>  
-                </ul>
-            </li>
-            <li class="dropdown"> 
-                <a href="#">Register</a>
-                <ul class="dropdown-menu">
-                    <li><a href="register.html">Workshop</a></li>
-                    <li><a href="membership.html">Membership</a></li>   
-                </ul>
-            </li>
-
-            <li> <a href="enquiry.html">Enquiry</a></li>
-
-            <li> <a href="login.html">
-                <img src="IMAGE/login.svg" alt="Login"> Login
-                </a>
-            </li>
-        </ul>
-    </nav>
-    </header>
+    <?php include("navigation.php"); ?>
 
     <!-- Main contents -->
     <main class="main-content">
@@ -73,14 +27,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/grandopening1.jpg" alt="Grand Opening 1" class="product-img">
-                        <figcaption>Opening Flower Stands with premium sunflower</figcaption>
+                        <img src="IMAGE/graduation1.jpg" alt="Graduation 1" class="product-img">
+                        <figcaption>Graduation Bouquet with premium sunflower</figcaption>
                     </figure>
-                    <h3 class="product-name">Grand Opening Flowers</h3>
+                    <h3 class="product-name">Graduation Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium sunflower</dd>
+                        <dd>Premium Sunflower</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -88,8 +42,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM57.00</span>
-                        <span class="original-price">RM60.00</span>
+                        <span class="current-price">RM47.50</span>
+                        <span class="original-price">RM50.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -102,14 +56,72 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/grandopening2.jpg" alt="Grand Opening 2" class="product-img">
-                        <figcaption>Opening Flower Stands with premium flowers</figcaption>
+                        <img src="IMAGE/graduation2.jpg" alt="Graduation 2" class="product-img">
+                        <figcaption>Graduation Bouquet with premium pompom chrysanthemum</figcaption>
                     </figure>
-                    <h3 class="product-name">Grand Opening Flowers</h3>
+                    <h3 class="product-name">Graduation Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
+                        <dd>Premium chrysanthemum</dd>
+                    </div>
+                    <div>
+                        <dt>Delivery:</dt>
+                        <dd>Same day available</dd>
+                    </div>
+                    </dl>
+                    <div class="product-price">
+                        <span class="current-price">RM38.00</span>
+                        <span class="original-price">RM40.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
+                        <button class="btn add-to-cart">Add To Cart</button>
+                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="discount-badge"><p>5%</p></div>
+                    <figure>
+                        <img src="IMAGE/graduation3.jpg" alt="Graduation 3" class="product-img">
+                        <figcaption>Graduation Bouquet with premium baby's breath flowers</figcaption>
+                    </figure>
+                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <dl class="product-specs">
+                    <div>
+                        <dt>Type:</dt>
+                        <dd>Baby's breath flowers</dd>
+                    </div>
+                    <div>
+                        <dt>Delivery:</dt>
+                        <dd>Same day available</dd>
+                    </div>
+                    </dl>
+                    <div class="product-price">
+                        <span class="current-price">RM60.00</span>
+                        <span class="original-price">RM63.00</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
+                        <button class="btn add-to-cart">Add To Cart</button>
+                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="discount-badge"><p>5%</p></div>
+                    <figure>
+                        <img src="IMAGE/graduation4.jpg" alt="Graduation 4" class="product-img">
+                        <figcaption>Graduation Bouquet with premium dyed baby's breath flowers</figcaption>
+                    </figure>
+                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <dl class="product-specs">
+                    <div>
+                        <dt>Type:</dt>
+                        <dd>Premium baby's breath flowers</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -127,76 +139,18 @@
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/grandopening3.jpg" alt="Grand Opening 3" class="product-img">
-                        <figcaption>Opening Flower Stands with premium flowers </figcaption>
-                    </figure>
-                    <h3 class="product-name">Grand Opening Basket</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM43.70</span>
-                        <span class="original-price">RM46.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/grandopening4.jpg" alt="Grand Opening 4" class="product-img">
-                        <figcaption>Opening Flower Stands with premium flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Grand Opening Stands</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM59.00</span>
-                        <span class="original-price">RM62.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
                 <!-- Product 5 -->
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/grandopening5.jpg" alt="Grand Opening 5" class="product-img">
-                        <figcaption>Grand Opening Stands with premium flowers</figcaption>
+                        <img src="IMAGE/graduation5.jpg" alt="Graduation 5" class="product-img">
+                        <figcaption>Graduation Bouquet with premium sunflower and baby's breath flowers</figcaption>
                     </figure>
-                    <h3 class="product-name">Grand Opening Stands</h3>
+                    <h3 class="product-name">Graduation Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
+                        <dd>Premium sunflower</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -204,8 +158,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM53.40</span>
-                        <span class="original-price">RM56.25</span>
+                        <span class="current-price">RM49.40</span>
+                        <span class="original-price">RM52.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -218,14 +172,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/grandopening6.jpg" alt="Grand Opening 6" class="product-img">
-                        <figcaption>Grand Opening Basket with premium flowers</figcaption>
+                        <img src="IMAGE/graduation6.jpg" alt="Graduation 6" class="product-img">
+                        <figcaption>Graduation Bouquet with premium pompom chrysanthemum</figcaption>
                     </figure>
-                    <h3 class="product-name">Grand Opening Basket</h3>
+                    <h3 class="product-name">Graduation Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
+                        <dd>Premium chrysanthemum</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -233,8 +187,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM36.60</span>
-                        <span class="original-price">RM38.50</span>
+                        <span class="current-price">RM50.35</span>
+                        <span class="original-price">RM53.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -247,14 +201,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/grandopening7.jpg" alt="Grand Opening 7" class="product-img">
-                        <figcaption>Grand Opening Basket with premium flowers</figcaption>
+                        <img src="IMAGE/graduation7.jpg" alt="Graduation 7" class="product-img">
+                        <figcaption>Graduation 7 with premium pink chrysanthemum</figcaption>
                     </figure>
-                    <h3 class="product-name">Grand Opening Basket</h3>
+                    <h3 class="product-name">Graduation Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
+                        <dd>Premium pink chrysanthemum</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -262,8 +216,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM36.50</span>
-                        <span class="original-price">RM38.40</span>
+                        <span class="current-price">RM51.30</span>
+                        <span class="original-price">RM54.00</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -276,14 +230,14 @@
                 <div class="product-card">
                     <div class="discount-badge"><p>5%</p></div>
                     <figure>
-                        <img src="IMAGE/grandopening8.jpg" alt="Grand Opening 8" class="product-img">
-                        <figcaption>Grand Opening Basket with premium flowers</figcaption>
+                        <img src="IMAGE/graduation8.jpg" alt="Graduation 8" class="product-img">
+                        <figcaption>Graduation Bouquet with premium sunflower </figcaption>
                     </figure>
-                    <h3 class="product-name">Grand Opening Basket</h3>
+                    <h3 class="product-name">Graduation Bouquet</h3>
                     <dl class="product-specs">
                     <div>
                         <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
+                        <dd>Premium sunflower</dd>
                     </div>
                     <div>
                         <dt>Delivery:</dt>
@@ -291,8 +245,8 @@
                     </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM32.80</span>
-                        <span class="original-price">RM34.50</span>
+                        <span class="current-price">RM55.70</span>
+                        <span class="original-price">RM58.65</span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -310,8 +264,8 @@
                 <li><a href="allproducts.html" class="category-item">All Flowers</a></li>
                 <li><a href="product1.html" class="category-item">Handtied Bouquet</a></li>
                 <li><a href="product2.html" class="category-item">CNY Decoration</a></li>
-                <li><a href="product3.html" class="category-item active">Grand Opening</a></li>
-                <li><a href="product4.html" class="category-item">Graduation</a></li>
+                <li><a href="product3.html" class="category-item">Grand Opening</a></li>
+                <li><a href="product4.html" class="category-item active">Graduation</a></li>
             </ol>
             <br>
             <div class="sidebar-table">
@@ -328,7 +282,7 @@
         </aside>
     </main>
     <br>
-    
+   
     <!-- Footer  -->
     <footer class="footer-content">
     <div class="footer-container">
