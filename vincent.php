@@ -53,6 +53,7 @@
 
     <!-- Footer  -->
     <?php include("footer.php"); ?>
+    <?php include("profileicon.php"); ?>
 </body>
 </html>
    

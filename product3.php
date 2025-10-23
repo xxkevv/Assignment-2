@@ -286,9 +286,7 @@
     <!-- Footer  -->
     <?php include("footer.php"); ?>
 
-    <a href="profile.html" class="profile-icon" title="Go to our profile page">
-        <img src="IMAGE/profile.svg" alt="Profile">
-    </a>
+    <?php include("profileicon.php"); ?>
 </body>
 </html>
     
