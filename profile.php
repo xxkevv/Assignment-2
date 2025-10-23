@@ -25,7 +25,7 @@
             <div class="card-content">
             <div class="profile-name">Kevinn Jose Novellino Shen</div>
             <div class="profile-role">Student of Computer Science</div>
-            <a href="kevinn.html" class="profile-button">
+            <a href="kevinn.php" class="profile-button">
                 <span>View Profile</span>
                 <img src="IMAGE/right.svg" alt="Right">
             </a>
@@ -38,7 +38,7 @@
             <div class="card-content">
             <div class="profile-name">Jiangyu Qiu</div>
             <div class="profile-role">Student of Computer Science</div>
-            <a href="jiangyu.html" class="profile-button">
+            <a href="jiangyu.php" class="profile-button">
                 <span>View Profile</span>
                 <img src="IMAGE/right.svg" alt="Right">
             </a>
@@ -51,7 +51,7 @@
             <div class="card-content">
             <div class="profile-name">Vincent Ho Ming Han</div>
             <div class="profile-role">Student of Computer Science</div>
-            <a href="vincent.html" class="profile-button">
+            <a href="vincent.php" class="profile-button">
                 <span>View Profile</span>
                 <img src="IMAGE/right.svg" alt="Right">
             </a>
@@ -64,7 +64,7 @@
                 <div class="card-content">
                     <div class="profile-name">Ahmed Hassan</div>
                     <div class="profile-role">Student of Engineering </div>
-                    <a href="ahmedHassan.html" class="profile-button">
+                    <a href="ahmedHassan.php" class="profile-button">
                         <span>View Profile</span>
                         <img src="IMAGE/right.svg" alt="Right">
                     </a>
