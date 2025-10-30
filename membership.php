@@ -20,7 +20,7 @@
         </section>
 
     <div class="membership-reg">
-    <form id="membership-form" method="post" action="/submit-membership">
+    <form id="membership-form" method="GET" action="membership_process.php">
 
         <fieldset>
         <legend>Membership Details</legend>
