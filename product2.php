@@ -258,28 +258,7 @@
         </section>
 
         <!-- Aside right-->
-         <aside class="sidebar">
-            <h2>Flower Categories</h2>
-            <ol class="category-list">
-                <li><a href="allproducts.html" class="category-item">All Flowers</a></li>
-                <li><a href="product1.html" class="category-item">Handtied Bouquet</a></li>
-                <li><a href="product2.html" class="category-item active">CNY Decoration</a></li>
-                <li><a href="product3.html" class="category-item">Grand Opening</a></li>
-                <li><a href="product4.html" class="category-item">Graduation</a></li>
-            </ol>
-            <br>
-            <div class="sidebar-table">
-                <table>
-                    <tr>
-                        <th>Non-membership</th>
-                        <td>Small Discount</td>
-                    </tr>
-                    <tr>
-                        <th>Membership</th>
-                        <td>Up to 10% Discount</td>
-                </table>
-            </div>
-        </aside>
+        <?php include("aside.php");?>     
     </main>
     <br>
     
