@@ -3088,3 +3088,262 @@ nav ul li .dropdown-menu a:hover {
     text-decoration: underline;
 }
 
+.membershipprocess {
+    min-height: 96vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.msprocesscontainer {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msprocesscard {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 70px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.msprocesscard h1 {
+    color: purple;
+}
+
+/* Different HTML page styles */
+/* Membership Process Page */
+.membershipprocess {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.msprocesscontainer {
+    max-width: 600px;
+    width: 100%;
+    animation: slideInFromTop 0.8s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.msprocesscard {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.msprocesscard h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    animation: fadeInScale 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.msprocesscard > p {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.confirmation-table {
+    width: 100%;
+    animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.confirmation-table table {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-table table tr {
+    transition: background-color 0.3s ease;
+}
+
+.confirmation-table table tr:hover {
+    background-color: #e9ecef;
+}
+
+.confirmation-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1em;
+    width: 35%;
+}
+
+.confirmation-table td {
+    background-color: white;
+    color: #333;
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1em;
+}
+
+.confirmation-table table tr:last-child td {
+    border-bottom: none;
+}
+
+.button-group .back-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    margin-top: 20px;
+}
+
+.button-group .back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.msprocesscard::before {
+    content: "✓";
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    color: white;
+    font-size: 3em;
+    line-height: 80px;
+    animation: successIcon 0.6s ease-out 0.2s both;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+@keyframes successIcon {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design for Membership Process */
+@media (max-width: 768px) {
+    .msprocesscard {
+        padding: 30px 20px;
+    }
+
+    .msprocesscard h1 {
+        font-size: 2em;
+    }
+
+    .msprocesscard > p {
+        font-size: 1em;
+    }
+
+    .confirmation-table th,
+    .confirmation-table td {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+
+    .button-group .back-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    .msprocesscard::before {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5em;
+        line-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .msprocesscard {
+        padding: 20px 15px;
+    }
+
+    .msprocesscard h1 {
+        font-size: 1.6em;
+    }
+
+    .confirmation-table th {
+        width: 40%;
+    }
+
+    .confirmation-table th,
+    .confirmation-table td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+}

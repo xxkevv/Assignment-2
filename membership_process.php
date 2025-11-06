@@ -23,16 +23,19 @@
     <div class="confirmation-table">
         <table>
             <tr>
-                <td>Name:</td>
-                <td><?php echo $_GET["fname"];
-                echo " ";
-                echo $_GET["lname"];?></td>
+                <th>Name:</th>
+                <td><?php echo $_GET["fname"] . " " . $_GET["lname"];?></td>
             </tr>
 
             
             <tr>
-                <td>Email:</td>
-                <td><?php echo $_GET["email"]; ?>
+                <th>Email:</th>
+                <td><?php echo $_GET["email"]; ?></td>
+            </tr>
+
+            <tr>
+                <th>Login ID:</th>
+                <td><?php echo $_GET["loginID"]; ?></td>
             </tr>
         </table>
 
