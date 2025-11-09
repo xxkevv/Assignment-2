@@ -21,7 +21,7 @@
     </section>
 
     <div class="enquiryform">
-        <form id="enquiry-detail" method="post" action="/submit-enquiry">
+        <form id="enquiry-detail" method="post" action="enquiry_process.php" novalidate="novalidate">
         <div class="enquiry-form-container">
         <!-- Personal Information Fieldset -->
         <fieldset class="form-fieldset">
@@ -121,13 +121,13 @@
                 <label>Services You're Interested In:</label>
                 <div class="checkbox-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" name="interests" value="delivery" required> Products
+                        <input type="checkbox" name="interests[]" value="delivery" required> Products
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" name="interests" value="custom"> Custom Arrangements
+                        <input type="checkbox" name="interests[]" value="custom"> Custom Arrangements
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" name="interests" value="workshops"> Flower Workshops
+                        <input type="checkbox" name="interests[]" value="workshops"> Flower Workshops
                     </label>
                 </div>
             </div>

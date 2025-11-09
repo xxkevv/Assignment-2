@@ -20,7 +20,7 @@
     </section>
 
     <div>
-         <form id="worksho_details" method="post" action="/submit-enquiry">
+         <form id="worksho_details" method="post" action="workshop_process.php" novalidate="novalidate">
 
             <!-- Personal Info -->
             <fieldset>
@@ -111,7 +111,7 @@
                 name="postcode"
                 type="text"
                 pattern="^\d{5}$"
-                maxlength="5"
+                maxlength="6"
                 required
                 placeholder="e.g. 93000">
             </fieldset>

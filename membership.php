@@ -20,7 +20,7 @@
         </section>
 
     <div class="membership-reg">
-    <form id="membership-form" method="GET" action="membership_process.php">
+    <form id="membership-form" method="POST" action="membership_process.php" novalidate="novalidate">
 
         <fieldset>
         <legend>Membership Details</legend>

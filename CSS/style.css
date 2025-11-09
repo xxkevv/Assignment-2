@@ -3122,7 +3122,7 @@ nav ul li .dropdown-menu a:hover {
 /* Membership Process Page */
 .membershipprocess {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #6FB6F7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3155,7 +3155,7 @@ nav ul li .dropdown-menu a:hover {
 }
 
 .msprocesscard h1 {
-    color: #667eea;
+    color: #3E2960;
     font-size: 2.5em;
     margin-bottom: 10px;
     animation: fadeInScale 1s ease-out 0.3s both;
@@ -3246,7 +3246,7 @@ nav ul li .dropdown-menu a:hover {
     border-bottom: none;
 }
 
-.button-group .back-button {
+.button-membership-process a {
     display: inline-block;
     padding: 15px 40px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -3260,7 +3260,7 @@ nav ul li .dropdown-menu a:hover {
     margin-top: 20px;
 }
 
-.button-group .back-button:hover {
+.button-membership-process a:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);

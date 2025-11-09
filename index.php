@@ -12,6 +12,8 @@
 
 
 <body>
+    <?php include("INCLUDE/connection.php"); ?>
+    <?php include("INCLUDE/createtable.php"); ?>
 <!-- Navigation bar -->
     <?php include("navigation.php"); ?>
 
