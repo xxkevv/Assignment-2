@@ -11,7 +11,7 @@
          &#9776;
         </label>
         <ul>
-            <li> <a href="index.php" class="tabsactive">Home</a></li>
+            <li> <a href="index.php"">Home</a></li>
 
             <li class="dropdown"> 
                 <a href="allproducts.php">Product</a>

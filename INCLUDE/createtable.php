@@ -11,7 +11,7 @@ if(!$conn) {
     die("Connection Failed". mysqli_connect_error());
 }
 
-$sql1 = "CREATE TABLE IF NOT EXISTS membership (
+$sql1 = "CREATE TABLE IF NOT EXISTS user (
     id INT(6) AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(25) NOT NULL,
     lastname VARCHAR(25) NOT NULL,
