@@ -11,7 +11,7 @@ if(!$conn) {
     die("Connection Failed". mysqli_connect_error());
 }
 
-$sql1 = "CREATE TABLE IF NOT EXISTS user (
+$sql1 = "CREATE TABLE IF NOT EXISTS membership (
     id INT(6) AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(25) NOT NULL,
     lastname VARCHAR(25) NOT NULL,
@@ -57,8 +57,15 @@ $sqli3 = "CREATE TABLE IF NOT EXISTS enquiry (
     priority INT NOT NULL
 )";
 
+$sqli4 = "CREATE TABLE IF NOT EXISTS user (
+    id INT(6) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+)";
+
 mysqli_query($conn, $sql1);
 mysqli_query($conn, $sqli2);
 mysqli_query($conn, $sqli3);
+mysqli_query($conn, $sqli4);
 mysqli_close($conn);
 ?>

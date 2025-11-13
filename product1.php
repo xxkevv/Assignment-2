@@ -267,7 +267,3 @@
     <?php include("profileicon.php"); ?>
 </body>
 </html>
-   gg 
-
-   test
-   hello

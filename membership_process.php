@@ -64,12 +64,17 @@
     $email = $_POST["email"];
     $loginID = $_POST["loginID"];
     $password = $_POST["password"];
-    $hasp = password_hash($password, PASSWORD_BCRYPT);
+    $cost = 10;
+    $hasp = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
 
-    $sql = "INSERT INTO user(firstname, lastname, email, loginID, password)
+    $sql = "INSERT INTO membership(firstname, lastname, email, loginID, password)
             VALUES ('$firstname', '$lastname', '$email', '$loginID', '$hasp')";
 
+    $sql2 = "INSERT INTO user(username, password)
+            VALUES ('$loginID', '$password')";
+
     mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql2);
 	mysqli_close($conn);
     ?>
 

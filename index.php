@@ -107,5 +107,24 @@
     
     <?php include("footer.php"); ?>
     <?php include("profileicon.php"); ?>
+
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "Root_Flower";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+    if (!$conn) {
+        die("Connection failed: ". mysqli_connect_error());
+    }
+
+    $sql = "INSERT INTO user(username, password)
+            VALUES ('admin', 'admin')";
+
+    mysqli_query($conn, $sql);
+	mysqli_close($conn);
+    ?>
 </body>
 </html>
