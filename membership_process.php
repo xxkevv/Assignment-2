@@ -64,9 +64,10 @@
     $email = $_POST["email"];
     $loginID = $_POST["loginID"];
     $password = $_POST["password"];
+    $hasp = password_hash($password, PASSWORD_BCRYPT);
 
     $sql = "INSERT INTO user(firstname, lastname, email, loginID, password)
-            VALUES ('$firstname', '$lastname', '$email', '$loginID', '$password')";
+            VALUES ('$firstname', '$lastname', '$email', '$loginID', '$hasp')";
 
     mysqli_query($conn, $sql);
 	mysqli_close($conn);
