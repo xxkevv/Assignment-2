@@ -59,8 +59,10 @@ $sqli3 = "CREATE TABLE IF NOT EXISTS enquiry (
 
 $sqli4 = "CREATE TABLE IF NOT EXISTS user (
     id INT(6) AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
+    role ENUM('admin', 'user') DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
 mysqli_query($conn, $sql1);

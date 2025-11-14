@@ -11,13 +11,22 @@
 </head>
 
 <body>
-    <?php include("navigation.php"); ?>
+    <?php 
+    session_start();
+    include("navigation.php"); 
+    ?>
     
     <section class="login-section">
     <div class="login-container">
             <div class="login-card">
             <h1>LOGIN</h1>
-        <form id="detail" method="post" action="/submit-login">
+        <?php
+        if (isset($_SESSION['login_error'])) {
+            echo '<div style="color: red; text-align: center; padding: 10px; margin-bottom: 10px; background: #ffe6e6; border-radius: 5px;">' . $_SESSION['login_error'] . '</div>';
+            unset($_SESSION['login_error']);
+        }
+        ?>
+        <form id="detail" method="post" action="login_process.php">
 
             <div class="login-form">
             <div class="input-group">

@@ -120,10 +120,15 @@
         die("Connection failed: ". mysqli_connect_error());
     }
 
-    $sql = "INSERT INTO user(username, password)
-            VALUES ('admin', 'admin')";
-
-    mysqli_query($conn, $sql);
+    $check = "SELECT * FROM user WHERE username = 'admin'";
+    $result = mysqli_query($conn, $check);
+    
+    if (mysqli_num_rows($result) == 0) {
+        $sql = "INSERT INTO user(username, password, role)
+                VALUES ('admin', 'admin', 'admin')";
+        mysqli_query($conn, $sql);
+    }
+    
 	mysqli_close($conn);
     ?>
 </body>
