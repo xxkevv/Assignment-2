@@ -12,9 +12,9 @@
 
 <body>
 
-    <div class="membershipprocess">
-    <div class="msprocesscontainer">
-    <div class="msprocesscard">
+    <div class="process">
+    <div class="processcontainer">
+    <div class="processcard">
     <h1>Welcome <?php echo $_POST["fname"];?></h1> 
 
     <p>Your membership has been processed</p>
