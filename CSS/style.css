@@ -3105,7 +3105,7 @@ nav ul li .dropdown-menu a:hover {
     align-items: center;
 }
 
-.msprocesscard {
+.processcard {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     padding: 70px;
@@ -3115,13 +3115,13 @@ nav ul li .dropdown-menu a:hover {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.msprocesscard h1 {
+.processcard h1 {
     color: purple;
 }
 
 /* Different HTML page styles */
 /* Membership Process Page */
-.membershipprocess {
+.process {
     min-height: 100vh;
     background: #6FB6F7;
     display: flex;
@@ -3130,7 +3130,7 @@ nav ul li .dropdown-menu a:hover {
     padding: 20px;
 }
 
-.msprocesscontainer {
+.processcontainer {
     max-width: 600px;
     width: 100%;
     animation: slideInFromTop 0.8s ease-out;
@@ -3147,7 +3147,7 @@ nav ul li .dropdown-menu a:hover {
     }
 }
 
-.msprocesscard {
+.processcard {
     background: white;
     border-radius: 20px;
     padding: 40px;
@@ -3155,7 +3155,7 @@ nav ul li .dropdown-menu a:hover {
     text-align: center;
 }
 
-.msprocesscard h1 {
+.processcard h1 {
     color: #3E2960;
     font-size: 2.5em;
     margin-bottom: 10px;
@@ -3173,7 +3173,7 @@ nav ul li .dropdown-menu a:hover {
     }
 }
 
-.msprocesscard > p {
+.processcard > p {
     color: #666;
     font-size: 1.2em;
     margin-bottom: 30px;
@@ -3267,7 +3267,7 @@ nav ul li .dropdown-menu a:hover {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
-.msprocesscard::before {
+.processcard::before {
     content: "✓";
     display: block;
     width: 80px;
@@ -3298,15 +3298,15 @@ nav ul li .dropdown-menu a:hover {
 
 /* Responsive Design for Membership Process */
 @media (max-width: 768px) {
-    .msprocesscard {
+    .processcard {
         padding: 30px 20px;
     }
 
-    .msprocesscard h1 {
+    .processcard h1 {
         font-size: 2em;
     }
 
-    .msprocesscard > p {
+    .processcard > p {
         font-size: 1em;
     }
 
@@ -3321,7 +3321,7 @@ nav ul li .dropdown-menu a:hover {
         font-size: 1em;
     }
 
-    .msprocesscard::before {
+    .processcard::before {
         width: 60px;
         height: 60px;
         font-size: 2.5em;
@@ -3330,11 +3330,11 @@ nav ul li .dropdown-menu a:hover {
 }
 
 @media (max-width: 480px) {
-    .msprocesscard {
+    .processcard {
         padding: 20px 15px;
     }
 
-    .msprocesscard h1 {
+    .processcard h1 {
         font-size: 1.6em;
     }
 
