@@ -69,7 +69,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
             } elseif ($page == 'workshop') {
                 echo '<div class="admin-page"><h1>Workshop Entries</h1><p>Workshop entries will be displayed here</p></div>';
             } elseif ($page == 'enquiry') {
-                echo '<div class="admin-page"><h1>Enquiry Entries</h1><p>Enquiry entries will be displayed here</p></div>';
+                include("view_enquiry.php");
             }
             ?>
         </main>
