@@ -1,5 +1,12 @@
 <?php 
-    echo'
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    $isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+    $username = $isLoggedIn ? $_SESSION['username'] : '';
+    $userRole = $isLoggedIn && isset($_SESSION['role']) ? $_SESSION['role'] : '';
+?>
     <header class="header">
     <nav class="navigator">
         <div class="left-group">
@@ -40,12 +47,26 @@
 
             <li> <a href="enquiry.php">Enquiry</a></li>
 
+            <?php if ($isLoggedIn): ?>
+            <li class="dropdown"> 
+                <a href="#">
+                    <?php echo htmlspecialchars($username); ?>
+                </a>
+                <ul class="dropdown-menu">
+                    <?php if ($userRole === 'admin'): ?>
+                    <li><a href="adminview.php">Admin</a></li>
+                    <?php else: ?>
+                    <li><a href="profile.php">Profile</a></li>
+                    <?php endif; ?>
+                    <li><a href="logout.php">Logout</a></li>
+                </ul>
+            </li>
+            <?php else: ?>
             <li> <a href="login.php">
                 <img src="IMAGE/login.svg" alt="Login"> Login
                 </a>
             </li>
+            <?php endif; ?>
         </ul>
     </nav>
     </header>
-    ';
-?>
