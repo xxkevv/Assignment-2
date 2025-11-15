@@ -67,7 +67,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
             } elseif ($page == 'membership') {
                 include('view_membership.php');
             } elseif ($page == 'workshop') {
-                echo '<div class="admin-page"><h1>Workshop Entries</h1><p>Workshop entries will be displayed here</p></div>';
+                include("view_register.php");
             } elseif ($page == 'enquiry') {
                 include("view_enquiry.php");
             }
