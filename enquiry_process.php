@@ -6,6 +6,7 @@
     <meta name="keywords" content="Flower, Root Flower, Kuching, Sarawak, Malaysia">
     <meta name="author" content="Kevinn Jose, Jiang Yu, Vincent, Ahmed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Enquiry Process - Root Flower</title>
 </head>
 

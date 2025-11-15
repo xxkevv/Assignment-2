@@ -20,7 +20,7 @@
     </section>
 
     <div>
-         <form id="worksho_details" method="post" action="workshop_process.php" novalidate="novalidate">
+         <form id="worksho_details" method="post" action="register_process.php">
 
             <!-- Personal Info -->
             <fieldset>
