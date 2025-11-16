@@ -18,7 +18,10 @@ $enquiries = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);
 ?>
 
+<link rel="stylesheet" href="styles.css">
+
 <div class="admin-page">
+    <h1 class="page-title">Enquiries</h1>
     <?php if (empty($enquiries)): ?>
         <p>No enquiries found.</p>
     <?php else: ?>

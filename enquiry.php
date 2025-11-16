@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+// Get user data if logged in
+$userData = null;
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "Root_Flower";
+    
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    
+    if ($conn) {
+        $loginID = $_SESSION['username'];
+        $stmt = $conn->prepare("SELECT firstname, lastname, email FROM membership WHERE loginID = ?");
+        $stmt->bind_param("s", $loginID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $userData = $result->fetch_assoc();
+        $stmt->close();
+        mysqli_close($conn);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -36,7 +61,9 @@
 					required
 					maxlength="25"
 					pattern="[A-Za-z]+" 
-					title="Only alphabetical letters allowed (A–Z)">
+					title="Only alphabetical letters allowed (A–Z)"
+					value="<?php echo $userData ? htmlspecialchars($userData['firstname']) : ''; ?>"
+					<?php echo $userData ? 'readonly' : ''; ?>>
                 </div>
 
                 <div class="form-group">
@@ -47,7 +74,9 @@
 					required
 					maxlength="25"
 					pattern="[A-Za-z]+" 
-					title="Only alphabetical letters allowed (A–Z)">            
+					title="Only alphabetical letters allowed (A–Z)"
+					value="<?php echo $userData ? htmlspecialchars($userData['lastname']) : ''; ?>"
+					<?php echo $userData ? 'readonly' : ''; ?>>            
                 </div>
             </div>
 
@@ -58,7 +87,9 @@
 					id="email"
 					name="email"
 					required
-					placeholder="xxxxxxxxxxxx@gmail.com">
+					placeholder="xxxxxxxxxxxx@gmail.com"
+					value="<?php echo $userData ? htmlspecialchars($userData['email']) : ''; ?>"
+					<?php echo $userData ? 'readonly' : ''; ?>>
 		   
                 </div>
 

@@ -18,7 +18,10 @@ $workshops = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);
 ?>
 
+<link rel="stylesheet" href="styles.css">
+
 <div class="admin-page">
+    <h1 class="page-title">Workshops</h1>
     <?php if (empty($workshops)): ?>
         <p>No workshop registrations found.</p>
     <?php else: ?>

@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+// Get user data if logged in
+$userData = null;
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "Root_Flower";
+    
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    
+    if ($conn) {
+        $loginID = $_SESSION['username'];
+        $stmt = $conn->prepare("SELECT firstname, lastname, email FROM membership WHERE loginID = ?");
+        $stmt->bind_param("s", $loginID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $userData = $result->fetch_assoc();
+        $stmt->close();
+        mysqli_close($conn);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +61,9 @@
                 pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,25}$"
                 title="Letters, spaces, apostrophes and hyphens only (max 25 chars)"
                 required
-                placeholder="e.g. Ahmad">
+                placeholder="e.g. Ahmad"
+                value="<?php echo $userData ? htmlspecialchars($userData['firstname']) : ''; ?>"
+                <?php echo $userData ? 'readonly' : ''; ?>>
 
                 <!-- Last name (text) -->
                 <label for="lname">Last name:</label>
@@ -48,7 +75,9 @@
                 pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,25}$"
                 title="Letters, spaces, apostrophes and hyphens only (max 25 chars)"
                 required
-                placeholder="e.g. Hassan">
+                placeholder="e.g. Hassan"
+                value="<?php echo $userData ? htmlspecialchars($userData['lastname']) : ''; ?>"
+                <?php echo $userData ? 'readonly' : ''; ?>>
 
                 <!-- Email (email type) -->
                 <label for="email">Email address:</label>
@@ -57,7 +86,9 @@
                 name="email"
                 type="email"
                 required
-                placeholder="you@example.com">
+                placeholder="you@example.com"
+                value="<?php echo $userData ? htmlspecialchars($userData['email']) : ''; ?>"
+                <?php echo $userData ? 'readonly' : ''; ?>>
             </fieldset>
 
             <!-- Address -->

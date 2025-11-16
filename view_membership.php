@@ -20,7 +20,10 @@ $stmt->close();
 mysqli_close($conn);
 ?>
 
+<link rel="stylesheet" href="styles.css">
+
 <div class="admin-page">
+    <h1 class="page-title">Memberships</h1>
     <?php if (empty($memberships)): ?>
         <p>No memberships found.</p>
     <?php else: ?>
