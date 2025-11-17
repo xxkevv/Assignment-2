@@ -3627,3 +3627,16 @@ nav ul li .dropdown-menu a:hover {
 .table-container tr:hover {
     background-color: #F5F0FF; 
 }
+
+.delete-btn {
+    background-color: #ff44ec;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #d228a8;
+}

@@ -11,7 +11,24 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Use prepared statement for security
+// Handle delete request first
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $deleteId = $_POST['delete_id'];
+    
+    // Prepare delete statement
+    $deleteStmt = $conn->prepare("DELETE FROM membership WHERE id = ?");
+    $deleteStmt->bind_param("i", $deleteId);
+    
+    if ($deleteStmt->execute()) {
+        // Optional: Add success message logic here
+    } else {
+        // Optional: Add error handling here
+        // echo "Error deleting record: " . $deleteStmt->error;
+    }
+    $deleteStmt->close();
+}
+
+// Fetch memberships after possible deletion
 $stmt = $conn->prepare("SELECT id, firstname, lastname, email, loginID FROM membership ORDER BY id ASC");
 $stmt->execute();
 $result = $stmt->get_result();
@@ -23,7 +40,7 @@ mysqli_close($conn);
 <link rel="stylesheet" href="styles.css">
 
 <div class="admin-page">
-    <h1 class="page-title">Memberships</h1>
+    <h1 class="page-title">Memberships Form</h1>
     <?php if (empty($memberships)): ?>
         <p>No memberships found.</p>
     <?php else: ?>
@@ -36,6 +53,7 @@ mysqli_close($conn);
                         <th>Last Name</th>
                         <th>Email Address</th>
                         <th>Login ID</th>
+                        <th>Action</th> <!-- New column for delete button -->
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +64,13 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($row["lastname"]); ?></td>
                             <td><?php echo htmlspecialchars($row["email"]); ?></td>
                             <td><?php echo htmlspecialchars($row["loginID"]); ?></td>
+                            <td>
+                                <!-- Delete form with POST method -->
+                                <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this membership?');">
+                                    <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row["id"]); ?>">
+                                    <button type="submit" class="delete-btn">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
