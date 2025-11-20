@@ -21,7 +21,7 @@
     <br>
 
     <div class="confirmation-table">
-        <table border="1">
+        <table>
             <tr>
                 <th>Name:</th>
                 <td><?php echo $_POST["firstname"] . " " . $_POST["lastname"]; ?></td>

@@ -17,11 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $deleteStmt->execute();
     $deleteStmt->close();
 
-   
     $result = mysqli_query($conn, "SELECT id FROM workshop ORDER BY id ASC");
     $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
-   
     $newId = 1;
     foreach ($records as $record) {
         $updateStmt = $conn->prepare("UPDATE workshop SET id = ? WHERE id = ?");
@@ -31,12 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         $newId++;
     }
 
-   
     mysqli_query($conn, "ALTER TABLE workshop AUTO_INCREMENT = " . $newId);
-
     mysqli_close($conn);
-
-  
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }

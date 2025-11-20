@@ -1,34 +1,45 @@
 <?php
-// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "Root_Flower";
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $deleteId = $_POST['delete_id'];
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
+    $deleteStmt = $conn->prepare("DELETE FROM membership WHERE id = ?");
+    $deleteStmt->bind_param("i", $deleteId);
+    $deleteStmt->execute();
+    $deleteStmt->close();
+
+    $result = mysqli_query($conn, "SELECT id FROM membership ORDER BY id ASC");
+    $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
+    $newId = 1;
+    foreach ($records as $record) {
+        $updateStmt = $conn->prepare("UPDATE membership SET id = ? WHERE id = ?");
+        $updateStmt->bind_param("ii", $newId, $record['id']);
+        $updateStmt->execute();
+        $updateStmt->close();
+        $newId++;
+    }
+
+    mysqli_query($conn, "ALTER TABLE membership AUTO_INCREMENT = " . $newId);
+    mysqli_close($conn);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-// Handle delete request first
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
-    $deleteId = $_POST['delete_id'];
-    
-    // Prepare delete statement
-    $deleteStmt = $conn->prepare("DELETE FROM membership WHERE id = ?");
-    $deleteStmt->bind_param("i", $deleteId);
-    
-    if ($deleteStmt->execute()) {
-        // Optional: Add success message logic here
-    } else {
-        // Optional: Add error handling here
-        // echo "Error deleting record: " . $deleteStmt->error;
-    }
-    $deleteStmt->close();
-}
-
-// Fetch memberships after possible deletion
 $stmt = $conn->prepare("SELECT id, firstname, lastname, email, loginID FROM membership ORDER BY id ASC");
 $stmt->execute();
 $result = $stmt->get_result();
@@ -53,7 +64,7 @@ mysqli_close($conn);
                         <th>Last Name</th>
                         <th>Email Address</th>
                         <th>Login ID</th>
-                        <th>Action</th> <!-- New column for delete button -->
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +76,6 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($row["email"]); ?></td>
                             <td><?php echo htmlspecialchars($row["loginID"]); ?></td>
                             <td>
-                                <!-- Delete form with POST method -->
                                 <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this membership?');">
                                     <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row["id"]); ?>">
                                     <button type="submit" class="delete-btn">Delete</button>

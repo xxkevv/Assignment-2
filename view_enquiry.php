@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,12 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-
     $deleteStmt = $conn->prepare("DELETE FROM enquiry WHERE id = ?");
     $deleteStmt->bind_param("i", $deleteId);
     $deleteStmt->execute();
     $deleteStmt->close();
-
 
     $result = mysqli_query($conn, "SELECT id FROM enquiry ORDER BY id ASC");
     $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -32,9 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         $newId++;
     }
 
-  
     mysqli_query($conn, "ALTER TABLE enquiry AUTO_INCREMENT = " . $newId);
-
     mysqli_close($conn);
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
@@ -51,8 +46,8 @@ $enquiries = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);
 ?>
 
-
 <link rel="stylesheet" href="styles.css">
+
 <div class="admin-page">
     <h1 class="page-title">Enquiries</h1>
     <?php if (empty($enquiries)): ?>
@@ -62,7 +57,6 @@ mysqli_close($conn);
             <table>
                 <thead>
                     <tr>
-                     
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -71,7 +65,7 @@ mysqli_close($conn);
                         <th>Priority</th>
                         <th>Preferred Date</th>
                         <th>Message</th>
-                        <th>Actions</th> 
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,10 +79,10 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($enquiry['priority']); ?></td>
                             <td><?php echo htmlspecialchars($enquiry['preferred_date']); ?></td>
                             <td><?php echo htmlspecialchars(substr($enquiry['comments'], 0, 50)) . '...'; ?></td>
-                          
                             <td>
-                                <form method="post" onsubmit="return confirm('Delete this record? IDs will be reindexed.');">
-                                    <input type="hidden" name="delete_id" value="<?php echo $enquiry['id']; ?>">
+                                <!-- Delete form with POST method -->
+                                <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this enquiry?');">
+                                    <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($enquiry['id']); ?>">
                                     <button type="submit" class="delete-btn">Delete</button>
                                 </form>
                             </td>
