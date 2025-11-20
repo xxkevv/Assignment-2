@@ -16,7 +16,7 @@ $sql1 = "CREATE TABLE IF NOT EXISTS membership (
     firstname VARCHAR(25) NOT NULL,
     lastname VARCHAR(25) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    loginID VARCHAR(10) NOT NULL,
+    loginID VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 )";
@@ -30,11 +30,9 @@ $sqli2 = "CREATE TABLE IF NOT EXISTS workshop (
     city VARCHAR(25) NOT NULL,
     state TEXT,
     postcode INT(6) NOT NULL,
-    loginID VARCHAR(10) NOT NULL,
-    password VARCHAR(25) NOT NULL,
     membershiptype TEXT,
     interests TEXT,
-    phone INT(10) NOT NULL,
+    phone INT(20) NOT NULL,
     dateofbirth DATE NOT NULL,
     participants INT NOT NULL,
     comments TEXT,

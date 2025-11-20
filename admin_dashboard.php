@@ -56,15 +56,15 @@ mysqli_close($conn);
     <div class="admin-quick-actions">
         <h2>Quick Actions</h2>
         <div class="action-buttons">
-            <a href="adminview.php?page=membership" class="action-btn">
+            <a href="adminview.php?page=membership" class="admin-action-btn">
                 <span>👥</span>
                 <span>View Members</span>
             </a>
-            <a href="adminview.php?page=workshop" class="action-btn">
+            <a href="adminview.php?page=workshop" class="admin-action-btn">
                 <span>🎓</span>
                 <span>View Workshops</span>
             </a>
-            <a href="adminview.php?page=enquiry" class="action-btn">
+            <a href="adminview.php?page=enquiry" class="admin-action-btn">
                 <span>✉️</span>
                 <span>View Enquiries</span>
             </a>

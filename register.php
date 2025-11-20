@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Get user data if logged in
 $userData = null;
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     $servername = "localhost";
@@ -63,7 +62,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 required
                 placeholder="e.g. Ahmad"
                 value="<?php echo $userData ? htmlspecialchars($userData['firstname']) : ''; ?>"
-                <?php echo $userData ? 'readonly' : ''; ?>>
+                >
 
                 <!-- Last name (text) -->
                 <label for="lname">Last name:</label>
@@ -77,7 +76,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 required
                 placeholder="e.g. Hassan"
                 value="<?php echo $userData ? htmlspecialchars($userData['lastname']) : ''; ?>"
-                <?php echo $userData ? 'readonly' : ''; ?>>
+                >
 
                 <!-- Email (email type) -->
                 <label for="email">Email address:</label>
@@ -88,7 +87,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 required
                 placeholder="you@example.com"
                 value="<?php echo $userData ? htmlspecialchars($userData['email']) : ''; ?>"
-                <?php echo $userData ? 'readonly' : ''; ?>>
+                >
             </fieldset>
 
             <!-- Address -->
@@ -147,44 +146,21 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 placeholder="e.g. 93000">
             </fieldset>
 
-            <!-- Account & Preferences (radio, checkbox) -->
+            <!--  Preferences (radio, checkbox) -->
             <fieldset>
-                <legend>Account & Preferences</legend>
-
-                <!-- Login ID -->
-                <label for="loginID">Login ID:</label>
-                <input
-                id="loginID"
-                name="loginID"
-                type="text"
-                maxlength="10"
-                pattern="^[A-Za-z0-9]{4,10}$"
-                title="4–10 letters or numbers"
-                required
-                placeholder="Choose a LOGIN ID">
-
-                <!-- Password -->
-                <label for="password">Password:</label>
-                <input
-                id="password"
-                name="password"
-                type="password"
-                minlength="8"
-                maxlength="25"
-                required
-                placeholder="Min 8 characters">
+                <legend>Preferences</legend>
 
                 <!-- Radio (membership type) -->
                 <label>Membership Type:</label>
                 <div class="workshop-radio">
-                <label><input type="radio" name="membershipType" value="standard" id="standard" required> Standard</label>
+                <label><input type="radio" name="membershipType" value="standard" id="standard"> Standard</label>
                 <label><input type="radio" name="membershipType" value="premium" id="premium"> Premium</label>
                 </div>
 
                 <!-- Checkbox group (interests) -->
                 <label>Interests:</label>
                 <div class="workshop-check">
-                <label><input type="checkbox" name="interests[]" value="products" id="products" required> Products</label>
+                <label><input type="checkbox" name="interests[]" value="products" id="products"> Products</label>
                 <label><input type="checkbox" name="interests[]" value="workshops" id="workshops"> Workshops</label>
                 <label><input type="checkbox" name="interests[]" value="promotions" id="promotions"> Promotions</label>
                 </div>
@@ -201,8 +177,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 id="phone"
                 name="phone"
                 type="tel"
-                pattern="^\d{10}$"
-                maxlength="10"
+                pattern="[0-9]+"
+                maxlength="20"
                 required
                 placeholder="e.g. 0123456789">
 

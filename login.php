@@ -22,7 +22,7 @@
             <h1>LOGIN</h1>
         <?php
         if (isset($_SESSION['login_error'])) {
-            echo '<div style="color: red; text-align: center; padding: 10px; margin-bottom: 10px; background: #ffe6e6; border-radius: 5px;">' . $_SESSION['login_error'] . '</div>';
+            echo '<p> Invalid username or password! </p>';
             unset($_SESSION['login_error']);
         }
         ?>
@@ -34,9 +34,8 @@
             <input type="text"
                 id="name"
                 name="Login" 
-                maxlength="10"
-                pattern="[A-Za-z]{1,10}"
-                title="Login must be letters only, up to 10 characters."
+                maxlength="20"
+                title="Login must be letters only, up to 20 characters."
                 placeholder="Type your username" required> 
             </div>
             
@@ -53,7 +52,6 @@
 
             <div class="forgot">
             
-            <a href="forgot-password.html">Forgot Password?</a>
             </div>
 
         <div class="button-group">

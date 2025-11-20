@@ -47,7 +47,7 @@
         <!-- Login ID -->
         <label for="loginID">Login ID:</label>
         <input id="loginID" name="loginID" type="text" 
-                maxlength="10" required
+                maxlength="20" required
                 pattern="^[A-Za-z]+$"
                 title="Alphabetical characters only">
 

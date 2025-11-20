@@ -31,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 
     mysqli_query($conn, "ALTER TABLE enquiry AUTO_INCREMENT = " . $newId);
     mysqli_close($conn);
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit;
 }
 
 
@@ -80,11 +78,18 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($enquiry['preferred_date']); ?></td>
                             <td><?php echo htmlspecialchars(substr($enquiry['comments'], 0, 50)) . '...'; ?></td>
                             <td>
-                                <!-- Delete form with POST method -->
-                                <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this enquiry?');">
-                                    <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($enquiry['id']); ?>">
-                                    <button type="submit" class="delete-btn">Delete</button>
-                                </form>
+                                <div class="action-dropdown">
+                                    <input type="checkbox" id="action-<?php echo $enquiry['id']; ?>" class="action-toggle">
+                                    <label for="action-<?php echo $enquiry['id']; ?>" class="action-btn">⋮</label>
+                                    <div class="dropdown-menu">
+                                        <button class="dropdown-item view-btn">View</button>
+                                        <button class="dropdown-item edit-btn">Edit</button>
+                                        <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this enquiry?');" style="margin: 0;">
+                                            <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($enquiry['id']); ?>">
+                                            <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>

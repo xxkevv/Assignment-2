@@ -31,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 
     mysqli_query($conn, "ALTER TABLE workshop AUTO_INCREMENT = " . $newId);
     mysqli_close($conn);
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit;
 }
 
 
@@ -79,19 +77,26 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($workshop['firstname'] . ' ' . $workshop['lastname']); ?></td>
                             <td><?php echo htmlspecialchars($workshop['email']); ?></td>
                             <td><?php echo htmlspecialchars($workshop['phone'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($workshop['address'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars($workshop['street'] . ", " . $workshop['city'] . ", " .$workshop['state'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['dob'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['loginID'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['membership_type'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['interests'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['participants'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars(substr($workshop['comments'] ?? '', 0, 50)); ?></td>
-                            <!-- Delete button -->
                             <td>
-                                <form method="post" onsubmit="return confirm('Delete this record? IDs will be reindexed.');">
-                                    <input type="hidden" name="delete_id" value="<?php echo $workshop['id']; ?>">
-                                    <button type="submit" class="delete-btn">Delete</button>
-                                </form>
+                                <div class="action-dropdown">
+                                    <input type="checkbox" id="action-<?php echo $workshop['id']; ?>" class="action-toggle">
+                                    <label for="action-<?php echo $workshop['id']; ?>" class="action-btn">⋮</label>
+                                    <div class="dropdown-menu">
+                                        <button class="dropdown-item view-btn">View</button>
+                                        <button class="dropdown-item edit-btn">Edit</button>
+                                        <form method="POST" action="" onsubmit="return confirm('Delete this record? IDs will be reindexed.');" style="margin: 0;">
+                                            <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($workshop['id']); ?>">
+                                            <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>

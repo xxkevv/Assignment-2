@@ -3131,7 +3131,7 @@ nav ul li .dropdown-menu a:hover {
 }
 
 .processcontainer {
-    max-width: 600px;
+    max-width: 1000px;
     width: 100%;
     animation: slideInFromTop 0.8s ease-out;
 }
@@ -3538,7 +3538,7 @@ nav ul li .dropdown-menu a:hover {
     gap: 20px;
 }
 
-.action-btn {
+.admin-action-btn {
     background: linear-gradient(135deg, #9277bf 0%, #5a3d7a 100%);
     color: white;
     padding: 25px;
@@ -3553,16 +3553,16 @@ nav ul li .dropdown-menu a:hover {
     box-shadow: 0 2px 10px rgba(62,41,96,0.3);
 }
 
-.action-btn:hover {
+.admin-action-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 20px rgba(62,41,96,0.5);
 }
 
-.action-btn span:first-child {
+.admin-action-btn span:first-child {
     font-size: 36px;
 }
 
-.action-btn span:last-child {
+.admin-action-btn span:last-child {
     font-size: 16px;
     font-weight: 500;
 }
@@ -3628,6 +3628,85 @@ nav ul li .dropdown-menu a:hover {
     background-color: #F5F0FF; 
 }
 
+/* Action Dropdown Styles */
+.action-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.action-toggle {
+    display: none;
+}
+
+.action-btn {
+    background: transparent;
+    color: #666;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.action-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.action-toggle:checked + .action-btn + .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 14px;
+}
+
+.dropdown-item.view-btn {
+    color: #4CAF50;
+}
+
+.dropdown-item.view-btn:hover {
+    background-color: #E8F5E9;
+}
+
+.dropdown-item.edit-btn {
+    color: #2196F3;
+}
+
+.dropdown-item.edit-btn:hover {
+    background-color: #E3F2FD;
+}
+
+.dropdown-item.dropdown-delete-btn {
+    color: #F44336;
+}
+
+.dropdown-item.dropdown-delete-btn:hover {
+    background-color: #FFEBEE;
+}
+
 .delete-btn {
     background-color: #ff44ec;
     color: white;
@@ -3640,3 +3719,4 @@ nav ul li .dropdown-menu a:hover {
 .delete-btn:hover {
     background-color: #d228a8;
 }
+
