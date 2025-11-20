@@ -3672,6 +3672,10 @@ nav ul li .dropdown-menu a:hover {
     display: block;
 }
 
+.dropdown-form {
+    margin: 0;
+}
+
 .dropdown-item {
     width: 100%;
     padding: 10px 16px;

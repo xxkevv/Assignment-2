@@ -84,7 +84,7 @@ mysqli_close($conn);
                                     <div class="dropdown-menu">
                                         <button class="dropdown-item view-btn">View</button>
                                         <button class="dropdown-item edit-btn">Edit</button>
-                                        <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this enquiry?');" style="margin: 0;">
+                                        <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this enquiry?');" class="dropdown-form">
                                             <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($enquiry['id']); ?>">
                                             <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>
                                         </form>

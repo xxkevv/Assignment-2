@@ -91,7 +91,7 @@ mysqli_close($conn);
                                     <div class="dropdown-menu">
                                         <button class="dropdown-item view-btn">View</button>
                                         <button class="dropdown-item edit-btn">Edit</button>
-                                        <form method="POST" action="" onsubmit="return confirm('Delete this record? IDs will be reindexed.');" style="margin: 0;">
+                                        <form method="POST" action="" onsubmit="return confirm('Delete this record? IDs will be reindexed.');" class="dropdown-form">
                                             <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($workshop['id']); ?>">
                                             <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>
                                         </form>
