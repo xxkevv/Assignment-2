@@ -1,4 +1,9 @@
+
 <?php
+if (basename($_SERVER['PHP_SELF']) == 'view_membership.php') {
+    header("Location: adminview.php?page=membership");
+    exit();
+}
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -31,8 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 
     mysqli_query($conn, "ALTER TABLE membership AUTO_INCREMENT = " . $newId);
     mysqli_close($conn);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
 }
-
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
@@ -78,8 +84,8 @@ mysqli_close($conn);
                                     <input type="checkbox" id="action-<?php echo $row['id']; ?>" class="action-toggle">
                                     <label for="action-<?php echo $row['id']; ?>" class="action-btn">⋮</label>
                                     <div class="dropdown-menu">
-                                        <button class="dropdown-item view-btn">View</button>
-                                        <button class="dropdown-item edit-btn">Edit</button>
+                                        <a href="view_membership_detail.php?id=<?php echo $row['id']; ?>" class="dropdown-item view-btn">View</a>
+                                        <a href="edit_membership.php?id=<?php echo $row['id']; ?>" class="dropdown-item edit-btn">Edit</a>
                                         <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this membership?');" class="dropdown-form">
                                             <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row['id']); ?>">
                                             <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>

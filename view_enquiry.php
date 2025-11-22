@@ -1,4 +1,10 @@
 <?php
+// Redirect if accessed directly
+if (basename($_SERVER['PHP_SELF']) == 'view_enquiry.php') {
+    header("Location: adminview.php?page=enquiry");
+    exit();
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -31,8 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 
     mysqli_query($conn, "ALTER TABLE enquiry AUTO_INCREMENT = " . $newId);
     mysqli_close($conn);
+    
+    // Redirect to avoid form resubmission
+    header("Location: view_enquiry.php");
+    exit;
 }
-
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
@@ -44,12 +53,23 @@ $enquiries = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);
 ?>
 
-<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Enquiries - Root & Flower</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
 
 <div class="admin-page">
     <h1 class="page-title">Enquiries</h1>
+    
     <?php if (empty($enquiries)): ?>
-        <p>No enquiries found.</p>
+        <div class="content-card">
+            <p>No enquiries found.</p>
+        </div>
     <?php else: ?>
         <div class="table-container">
             <table>
@@ -82,8 +102,8 @@ mysqli_close($conn);
                                     <input type="checkbox" id="action-<?php echo $enquiry['id']; ?>" class="action-toggle">
                                     <label for="action-<?php echo $enquiry['id']; ?>" class="action-btn">⋮</label>
                                     <div class="dropdown-menu">
-                                        <button class="dropdown-item view-btn">View</button>
-                                        <button class="dropdown-item edit-btn">Edit</button>
+                                        <a href="view_enquiry_detail.php?id=<?php echo $enquiry['id']; ?>" class="dropdown-item view-btn">View</a>
+                                        <a href="edit_enquiry.php?id=<?php echo $enquiry['id']; ?>" class="dropdown-item edit-btn">Edit</a>
                                         <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete this enquiry?');" class="dropdown-form">
                                             <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($enquiry['id']); ?>">
                                             <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>
@@ -98,3 +118,6 @@ mysqli_close($conn);
         </div>
     <?php endif; ?>
 </div>
+
+</body>
+</html>

@@ -86,7 +86,7 @@
             </tr>
         </table>
 
-        <div class="button-enquiry-process">
+        <div class="button-membership-process">
         <a href="index.php">Back to Website</a>
         </div>
     </div>

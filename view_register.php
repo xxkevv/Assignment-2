@@ -1,4 +1,9 @@
 <?php
+if (basename($_SERVER['PHP_SELF']) == 'view_register.php') {
+    header("Location: adminview.php?page=workshop");
+    exit();
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -89,8 +94,8 @@ mysqli_close($conn);
                                     <input type="checkbox" id="action-<?php echo $workshop['id']; ?>" class="action-toggle">
                                     <label for="action-<?php echo $workshop['id']; ?>" class="action-btn">⋮</label>
                                     <div class="dropdown-menu">
-                                        <button class="dropdown-item view-btn">View</button>
-                                        <button class="dropdown-item edit-btn">Edit</button>
+                                        <a href="view_register_detail.php?id=<?php echo $workshop['id']; ?>" class="dropdown-item view-btn">View</a>
+                                        <a href="edit_register.php?id=<?php echo $workshop['id']; ?>" class="dropdown-item edit-btn">Edit</a>
                                         <form method="POST" action="" onsubmit="return confirm('Delete this record? IDs will be reindexed.');" class="dropdown-form">
                                             <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($workshop['id']); ?>">
                                             <button type="submit" class="dropdown-item dropdown-delete-btn">Delete</button>

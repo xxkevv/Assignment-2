@@ -21,7 +21,7 @@
     <br>
 
     <div class="confirmation-table">
-        <table border="1">
+        <table>
             <tr>
                 <th>Name:</th>
                 <td><?php echo $_POST["fname"] . " " . $_POST["lname"]; ?></td>
@@ -55,11 +55,6 @@
             </tr>
 
             <tr>
-                <th>Login ID:</th>
-                <td><?php echo $_POST["loginID"]; ?></td>
-            </tr>
-
-            <tr>
                 <th>Membership Type:</th>
                 <td><?php echo $_POST["membershipType"]; ?></td>
             </tr>
@@ -90,7 +85,7 @@
             <?php endif; ?>
         </table>
 
-        <div class="button-register-process">
+        <div class="button-membership-process">
         <a href="index.php">Back to Website</a>
         </div>
     </div>
@@ -117,8 +112,6 @@
     $city = $_POST["city"];
     $state = $_POST["state"];
     $postcode = $_POST["postcode"];
-    $loginID = $_POST["loginID"];
-    $password = $_POST["password"];
     $membershipType = $_POST["membershipType"];
     $interests = isset($_POST["interests"]) ? implode(", ", $_POST["interests"]) : "";
     $phone = $_POST["phone"];
@@ -126,8 +119,8 @@
     $participants = $_POST["participants"];
     $comments = isset($_POST["comments"]) ? $_POST["comments"] : "";
 
-    $sql = "INSERT INTO workshop (firstname, lastname, email, street, city, state, postcode, loginID, password, membershiptype, interests, phone, dateofbirth, participants, comments)
-            VALUES ('$firstname', '$lastname', '$email', '$street', '$city', '$state', '$postcode', '$loginID', '$password', '$membershipType', '$interests', '$phone', '$dob', '$participants', '$comments')";
+    $sql = "INSERT INTO workshop (firstname, lastname, email, street, city, state, postcode, membershiptype, interests, phone, dateofbirth, participants, comments)
+            VALUES ('$firstname', '$lastname', '$email', '$street', '$city', '$state', '$postcode', '$membershipType', '$interests', '$phone', '$dob', '$participants', '$comments')";
 
     mysqli_query($conn, $sql);
     mysqli_close($conn);
