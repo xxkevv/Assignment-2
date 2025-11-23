@@ -1,3 +1,53 @@
+<?php
+// Include anti-spam protection
+require_once 'anti_spam.php';
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Root_Flower";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: ". mysqli_connect_error());
+}
+
+// Get user identifier
+$user_identifier = get_user_identifier();
+
+// Check if user is blocked
+$block_status = check_spam_block($user_identifier, $conn);
+if ($block_status['blocked']) {
+    display_block_message($block_status['message']);
+}
+
+// Record and check submission
+$submission_status = record_submission($user_identifier, 'membership', $conn);
+if (!$submission_status['allowed']) {
+    display_block_message($submission_status['message']);
+}
+
+// Sanitize inputs
+$firstname = mysqli_real_escape_string($conn, $_POST["fname"]);
+$lastname = mysqli_real_escape_string($conn, $_POST["lname"]);
+$email = mysqli_real_escape_string($conn, $_POST["email"]);
+$loginID = mysqli_real_escape_string($conn, $_POST["loginID"]);
+$password_plain = $_POST["password"];
+$hasp = password_hash($password_plain, PASSWORD_BCRYPT, ["cost" => 10]);
+
+// Insert into database
+$sql = "INSERT INTO membership(firstname, lastname, email, loginID, password)
+        VALUES ('$firstname', '$lastname', '$email', '$loginID', '$hasp')";
+
+$sql2 = "INSERT INTO user(username, password)
+        VALUES ('$loginID', '$password_plain')";
+
+$success = mysqli_query($conn, $sql) && mysqli_query($conn, $sql2);
+
+mysqli_close($conn);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +65,8 @@
     <div class="process">
     <div class="processcontainer">
     <div class="processcard">
-    <h1>Welcome <?php echo $_POST["fname"];?></h1> 
+    <?php if ($success): ?>
+    <h1>Welcome <?php echo htmlspecialchars($firstname);?></h1> 
 
     <p>Your membership has been processed</p>
     <br>
@@ -24,59 +75,40 @@
         <table>
             <tr>
                 <th>Name:</th>
-                <td><?php echo $_POST["fname"] . " " . $_POST["lname"];?></td>
+                <td><?php echo htmlspecialchars($firstname . " " . $lastname);?></td>
             </tr>
 
-            
             <tr>
                 <th>Email:</th>
-                <td><?php echo $_POST["email"]; ?></td>
+                <td><?php echo htmlspecialchars($email); ?></td>
             </tr>
 
             <tr>
                 <th>Login ID:</th>
-                <td><?php echo $_POST["loginID"]; ?></td>
+                <td><?php echo htmlspecialchars($loginID); ?></td>
             </tr>
         </table>
+
+        <?php if (!empty($submission_status['message'])): ?>
+        <p class="warning-message">
+            ⚠️ <?php echo htmlspecialchars($submission_status['message']); ?>
+        </p>
+        <?php endif; ?>
 
         <div class="button-membership-process">
         <a href="index.php">Back to Website</a>
         </div>
     </div>
+    <?php else: ?>
+    <h1>Registration Failed</h1>
+    <p>There was an error processing your membership. Please try again later.</p>
+    <div class="button-membership-process">
+        <a href="index.php">Back to Website</a>
+    </div>
+    <?php endif; ?>
     </div>
     </div>
     </div>
-
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "Root_Flower";
-
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    if (!$conn) {
-        die("Connection failed: ". mysqli_connect_error());
-    }
-
-    $firstname = $_POST["fname"];
-    $lastname = $_POST["lname"];
-    $email = $_POST["email"];
-    $loginID = $_POST["loginID"];
-    $password = $_POST["password"];
-    $cost = 10;
-    $hasp = password_hash($password, PASSWORD_BCRYPT, ["cost" => 10]);
-
-    $sql = "INSERT INTO membership(firstname, lastname, email, loginID, password)
-            VALUES ('$firstname', '$lastname', '$email', '$loginID', '$hasp')";
-
-    $sql2 = "INSERT INTO user(username, password)
-            VALUES ('$loginID', '$password')";
-
-    mysqli_query($conn, $sql);
-    mysqli_query($conn, $sql2);
-	mysqli_close($conn);
-    ?>
 
 </body>
 </html>

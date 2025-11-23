@@ -1,3 +1,57 @@
+<?php
+// Include anti-spam protection
+require_once 'anti_spam.php';
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$db_password = "";
+$dbname = "Root_Flower";
+
+$conn = mysqli_connect($servername, $username, $db_password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: ". mysqli_connect_error());
+}
+
+// Get user identifier
+$user_identifier = get_user_identifier();
+
+// Check if user is blocked
+$block_status = check_spam_block($user_identifier, $conn);
+if ($block_status['blocked']) {
+    display_block_message($block_status['message']);
+}
+
+// Record and check submission
+$submission_status = record_submission($user_identifier, 'enquiry', $conn);
+if (!$submission_status['allowed']) {
+    display_block_message($submission_status['message']);
+}
+
+// Sanitize inputs
+$firstname = mysqli_real_escape_string($conn, $_POST["firstname"]);
+$lastname = mysqli_real_escape_string($conn, $_POST["lastname"]);
+$email = mysqli_real_escape_string($conn, $_POST["email"]);
+$phonenumber = mysqli_real_escape_string($conn, $_POST["phonenumber"]);
+$address = mysqli_real_escape_string($conn, $_POST["address"]);
+$city = mysqli_real_escape_string($conn, $_POST["city"]);
+$contact_method = mysqli_real_escape_string($conn, $_POST["contactMethod"]);
+$interests = isset($_POST["interests"]) ? implode(", ", array_map(function($item) use ($conn) {
+    return mysqli_real_escape_string($conn, $item);
+}, $_POST["interests"])) : "";
+$enquiry_type = mysqli_real_escape_string($conn, $_POST["enquiryType"]);
+$preferred_date = mysqli_real_escape_string($conn, $_POST["preferredDate"]);
+$comments = mysqli_real_escape_string($conn, $_POST["comments"]);
+$priority = mysqli_real_escape_string($conn, $_POST["priority"]);
+
+// Insert into database
+$sql = "INSERT INTO enquiry (firstname, lastname, email, phonenumber, address, city, contact_method, interests, enquiry_type, preferred_date, comments, priority)
+        VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$address', '$city', '$contact_method', '$interests', '$enquiry_type', '$preferred_date', '$comments', '$priority')";
+
+mysqli_query($conn, $sql);
+mysqli_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +69,7 @@
     <div class="process">
     <div class="processcontainer">
     <div class="processcard">
-    <h1>Thank You <?php echo $_POST["firstname"]; ?>!</h1> 
+    <h1>Thank You <?php echo htmlspecialchars($_POST["firstname"]); ?>!</h1> 
 
     <p>Your enquiry has been submitted successfully</p>
     <br>
@@ -24,32 +78,32 @@
         <table>
             <tr>
                 <th>Name:</th>
-                <td><?php echo $_POST["firstname"] . " " . $_POST["lastname"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["firstname"] . " " . $_POST["lastname"]); ?></td>
             </tr>
 
             <tr>
                 <th>Email:</th>
-                <td><?php echo $_POST["email"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["email"]); ?></td>
             </tr>
 
             <tr>
                 <th>Phone Number:</th>
-                <td><?php echo $_POST["phonenumber"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["phonenumber"]); ?></td>
             </tr>
 
             <tr>
                 <th>Address:</th>
-                <td><?php echo $_POST["address"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["address"]); ?></td>
             </tr>
 
             <tr>
                 <th>City:</th>
-                <td><?php echo $_POST["city"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["city"]); ?></td>
             </tr>
 
             <tr>
                 <th>Preferred Contact Method:</th>
-                <td><?php echo $_POST["contactMethod"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["contactMethod"]); ?></td>
             </tr>
 
             <tr>
@@ -57,7 +111,7 @@
                 <td>
                     <?php 
                     if(isset($_POST["interests"])) {
-                        echo implode(", ", $_POST["interests"]);
+                        echo htmlspecialchars(implode(", ", $_POST["interests"]));
                     } else {
                         echo "None selected";
                     }
@@ -67,24 +121,30 @@
 
             <tr>
                 <th>Type of Enquiry:</th>
-                <td><?php echo $_POST["enquiryType"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["enquiryType"]); ?></td>
             </tr>
 
             <tr>
                 <th>Preferred Contact Date:</th>
-                <td><?php echo $_POST["preferredDate"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["preferredDate"]); ?></td>
             </tr>
 
             <tr>
                 <th>Enquiry Priority:</th>
-                <td><?php echo $_POST["priority"] . "/5"; ?></td>
+                <td><?php echo htmlspecialchars($_POST["priority"]) . "/5"; ?></td>
             </tr>
 
             <tr>
                 <th>Your Message:</th>
-                <td><?php echo $_POST["comments"]; ?></td>
+                <td><?php echo htmlspecialchars($_POST["comments"]); ?></td>
             </tr>
         </table>
+
+        <?php if (!empty($submission_status['message'])): ?>
+        <p class="warning-message">
+            ⚠️ <?php echo htmlspecialchars($submission_status['message']); ?>
+        </p>
+        <?php endif; ?>
 
         <div class="button-membership-process">
         <a href="index.php">Back to Website</a>
@@ -93,38 +153,6 @@
     </div>
     </div>
     </div>
-
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $db_password = "";
-    $dbname = "Root_Flower";
-
-    $conn = mysqli_connect($servername, $username, $db_password, $dbname);
-
-    if (!$conn) {
-        die("Connection failed: ". mysqli_connect_error());
-    }
-
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $email = $_POST["email"];
-    $phonenumber = $_POST["phonenumber"];
-    $address = $_POST["address"];
-    $city = $_POST["city"];
-    $contact_method = $_POST["contactMethod"];
-    $interests = isset($_POST["interests"]) ? implode(", ", $_POST["interests"]) : "";
-    $enquiry_type = $_POST["enquiryType"];
-    $preferred_date = $_POST["preferredDate"];
-    $comments = $_POST["comments"];
-    $priority = $_POST["priority"];
-
-    $sql = "INSERT INTO enquiry (firstname, lastname, email, phonenumber, address, city, contact_method, interests, enquiry_type, preferred_date, comments, priority)
-            VALUES ('$firstname', '$lastname', '$email', '$phonenumber', '$address', '$city', '$contact_method', '$interests', '$enquiry_type', '$preferred_date', '$comments', '$priority')";
-
-    mysqli_query($conn, $sql);
-    mysqli_close($conn);
-    ?>
 
 </body>
 </html>

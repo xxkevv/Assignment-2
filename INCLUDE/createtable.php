@@ -63,9 +63,28 @@ $sqli4 = "CREATE TABLE IF NOT EXISTS user (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
+$sqli5 = "CREATE TABLE IF NOT EXISTS submission_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_identifier VARCHAR(100) NOT NULL,
+    form_type VARCHAR(50) NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_user_time (user_identifier, form_type, submitted_at)
+)";
+
+$sqli6 = "CREATE TABLE IF NOT EXISTS spam_blocks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_identifier VARCHAR(100) NOT NULL,
+    reason TEXT NOT NULL,
+    blocked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    block_until DATETIME NOT NULL,
+    INDEX idx_user_block (user_identifier, block_until)
+)";
+
 mysqli_query($conn, $sql1);
 mysqli_query($conn, $sqli2);
 mysqli_query($conn, $sqli3);
 mysqli_query($conn, $sqli4);
+mysqli_query($conn, $sqli5);
+mysqli_query($conn, $sqli6);
 mysqli_close($conn);
 ?>
