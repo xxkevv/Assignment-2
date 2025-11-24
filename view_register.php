@@ -67,7 +67,6 @@ mysqli_close($conn);
                         <th>Phone Number</th>
                         <th>Address</th>
                         <th>Date of Birth</th>
-                        <th>Login ID</th>
                         <th>Membership Type</th>
                         <th>Interests</th>
                         <th>Number of Participants</th>
@@ -83,9 +82,8 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($workshop['email']); ?></td>
                             <td><?php echo htmlspecialchars($workshop['phone'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['street'] . ", " . $workshop['city'] . ", " .$workshop['state'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($workshop['dob'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($workshop['loginID'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($workshop['membership_type'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars($workshop['dateofbirth'] ?? 'N/A'); ?></td>
+                            <td><?php echo htmlspecialchars($workshop['membershiptype'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['interests'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['participants'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars(substr($workshop['comments'] ?? '', 0, 50)); ?></td>

@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             state = ?,
             postcode = ?,
             dateofbirth = ?,
-            loginID = ?,
             membershiptype = ?,
             interests = ?,
             participants = ?,
@@ -56,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             WHERE id = ?");
         
         $stmt->bind_param(
-            "ssssssssssssssi",
+            "sssssssssssssi",
             $firstname, $lastname, $email, $phone, $street, $city, $state,
-            $postcode, $dateofbirth, $loginID, $membershiptype, $interests, $participants, $comments, $id
+            $postcode, $dateofbirth, $membershiptype, $interests, $participants, $comments, $id
         );
 
         if ($stmt->execute()) {
@@ -144,19 +143,16 @@ mysqli_close($conn);
                     
                     <label for="dob">Date of Birth</label>
                     <input type="date" id="dob" name="dob" 
-                           value="<?php echo htmlspecialchars($workshop['dob'] ?? ''); ?>">
+                           value="<?php echo htmlspecialchars($workshop['dateofbirth'] ?? ''); ?>">
                 </fieldset>
                 
                 <fieldset>
                     <legend>Account & Workshop Details</legend>
                     
-                    <label for="loginID">Login ID</label>
-                    <input type="text" id="loginID" name="loginID" 
-                           value="<?php echo htmlspecialchars($workshop['loginID'] ?? ''); ?>">
                     
                     <label for="membership_type">Membership Type</label>
                     <input type="text" id="membership_type" name="membership_type" 
-                           value="<?php echo htmlspecialchars($workshop['membership_type'] ?? ''); ?>">
+                           value="<?php echo htmlspecialchars($workshop['membershiptype'] ?? ''); ?>">
                     
                     <label for="interests">Interests</label>
                     <input type="text" id="interests" name="interests" 

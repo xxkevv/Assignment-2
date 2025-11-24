@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 
     mysqli_query($conn, "ALTER TABLE membership AUTO_INCREMENT = " . $newId);
     mysqli_close($conn);
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit;
 }
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);

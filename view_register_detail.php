@@ -72,15 +72,11 @@ mysqli_close($conn);
             </div>
             <div class="detail-info">
                 <span class="detail-label">Date of Birth:</span>
-                <span class="detail-value"><?php echo htmlspecialchars($workshop['dob'] ?? 'N/A'); ?></span>
-            </div>
-            <div class="detail-info">
-                <span class="detail-label">Login ID:</span>
-                <span class="detail-value"><?php echo htmlspecialchars($workshop['loginID'] ?? 'N/A'); ?></span>
+                <span class="detail-value"><?php echo htmlspecialchars($workshop['dateofbirth'] ?? 'N/A'); ?></span>
             </div>
             <div class="detail-info">
                 <span class="detail-label">Membership Type:</span>
-                <span class="detail-value"><?php echo htmlspecialchars($workshop['membership_type'] ?? 'N/A'); ?></span>
+                <span class="detail-value"><?php echo htmlspecialchars($workshop['membershiptype'] ?? 'N/A'); ?></span>
             </div>
             <div class="detail-info">
                 <span class="detail-label">Interests:</span>
