@@ -98,7 +98,7 @@ mysqli_close($conn);
         <h1 class="page-title">Edit Workshop Registration</h1>
         
         <?php if ($message): ?>
-            <div class="content-card" style="<?php echo strpos($message, 'successfully') !== false ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'; ?> padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <div class="message-box <?php echo strpos($message, 'successfully') !== false ? 'message-success' : 'message-error'; ?>">
                 <?php echo htmlspecialchars($message); ?>
             </div>
         <?php endif; ?>

@@ -10,6 +10,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     
+    // Automatic fill the form if user already login
     if ($conn) {
         $loginID = $_SESSION['username'];
         $stmt = $conn->prepare("SELECT firstname, lastname, email FROM membership WHERE loginID = ?");

@@ -24,6 +24,7 @@
         $lastname = trim($_POST['lastname']);
         $email = trim($_POST['email']);
         $loginID = trim($_POST['loginID']);
+        $oldLoginID = trim($_POST['old_loginID']); // Store old loginID to find user record
 
         // Validate required fields
         if (empty($firstname) || empty($lastname) || empty($email) || empty($loginID)) {
@@ -33,18 +34,26 @@
             if (!$conn) {
                 $message = "Database connection failed: " . mysqli_connect_error();
             } else {
-                // Update record
                 $stmt = $conn->prepare("UPDATE membership SET firstname=?, lastname=?, email=?, loginID=? WHERE id=?");
                 $stmt->bind_param("ssssi", $firstname, $lastname, $email, $loginID, $id);
                 
-                if ($stmt->execute()) {
-                    $message = "Membership updated successfully!";
-                } else {
-                    $message = "Error updating membership: " . $stmt->error;
-                }
-                
+                $membershipUpdated = $stmt->execute();
                 $stmt->close();
+
+                $stmt2 = $conn->prepare("UPDATE user SET username=? WHERE username=?");
+                $stmt2->bind_param("ss", $loginID, $oldLoginID);
+                $userUpdated = $stmt2->execute();
+                $stmt2->close();
+                
                 mysqli_close($conn);
+                
+                if ($membershipUpdated && $userUpdated) {
+                    $message = "Membership and User account updated successfully! Login ID changed to: " . htmlspecialchars($loginID);
+                } elseif ($membershipUpdated) {
+                    $message = "Membership updated, but User table update failed or user not found.";
+                } else {
+                    $message = "Error updating membership.";
+                }
             }
         }
     }
@@ -70,7 +79,7 @@
             <h1 class="page-title">Edit Membership</h1>
             
             <?php if ($message): ?>
-                <div class="content-card" style="<?php echo strpos($message, 'successfully') !== false ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'; ?> padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div class="message-box <?php echo strpos($message, 'successfully') !== false ? 'message-success' : 'message-error'; ?>">
                     <?php echo htmlspecialchars($message); ?>
                 </div>
             <?php endif; ?>
@@ -78,6 +87,7 @@
             <div class="content-card">
                 <form method="POST" action="" class="edit-form">
                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($membership['id']); ?>">
+                    <input type="hidden" name="old_loginID" value="<?php echo htmlspecialchars($membership['loginID']); ?>">
                     
                     <fieldset>
                         <legend>Personal Information</legend>

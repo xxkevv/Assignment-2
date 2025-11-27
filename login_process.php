@@ -33,11 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         mysqli_close($conn);
         
+        // Check the role of the user
+        // Admin (go to adminview.php)
         if ($row['role'] == 'admin') {
             header("Location: adminview.php");
             exit();
+        // User (go to user.php)
         } else {
-            header("Location: profile.php");
+            header("Location: user.php");
             exit();
         }
     } else {

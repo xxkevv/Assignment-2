@@ -96,7 +96,7 @@ mysqli_close($conn);
         <h1 class="page-title">Edit Enquiry</h1>
         
         <?php if ($message): ?>
-            <div class="content-card" >
+            <div class="message-box <?php echo strpos($message, 'successfully') !== false ? 'message-success' : 'message-error'; ?>">
                 <?php echo htmlspecialchars($message); ?>
             </div>
         <?php endif; ?>

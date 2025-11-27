@@ -56,7 +56,7 @@
                     <?php if ($userRole === 'admin'): ?>
                     <li><a href="adminview.php">Admin</a></li>
                     <?php else: ?>
-                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="user.php">Profile</a></li>
                     <?php endif; ?>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>

@@ -20,7 +20,7 @@
             <div class="main-workshop">
                 <h1>Flower Arrangement Workshop</h1>
                 <p>Unleash your creativity with our flower arrangement workshops!</p>
-                <button onclick="location.href='register.html'">Book Now</button>
+                <a href="register.html" class="register-btn">Book Now</a>
             </div>
             <figure class="workshop-image">
                 <img src="IMAGE/workshopbg.jpg" alt="Workshop Image">
@@ -48,7 +48,7 @@
                             <dt>Schedule: </dt>
                             <dd><span>Aug/Sep/Oct 2025 </span></dd>
                         </dl>
-                        <button class="register-btn" onclick="location.href='register.html'">Register Now</button>
+                        <a href="register.php" class="register-btn">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                             <dt>Schedule: </dt>
                             <dd>Aug/Sep/Oct 2025</dd>
                         </dl>
-                        <button class="register-btn" onclick="location.href='register.html'">Register Now</button>
+                        <a href="register.php" class="register-btn">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                             <dt>Schedule: </dt>
                             <dd>Aug/Sep/Oct 2025</dd>
                         </dl>
-                        <button class="register-btn" onclick="location.href='register.html'">Register Now</button>
+                        <a href="register.php" class="register-btn">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                             <dt>October</dt>
                             <dd>Mix Flowers Bouquet and Flowers Box</dd>
                         </dl>
-                        <button class="register-btn" onclick="location.href='register.html'">Register Now</button>
+                        <a href="register.php" class="register-btn">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -148,9 +148,8 @@
                         <td>Up to 10% Discount</td>
                     </tr>
                 </table>
+                <a href="register.php" class="register-btn">Register Workshop</a>
             </div>
-
-            <button class="register-btn" onclick="location.href='register.html'">Register Workshop</button>
         </aside>
 
     </section>

@@ -19,7 +19,7 @@
             <div class="main-promotion">
                 <h1>Check Our Latest Promotion</h1>
                 <p>Beautiful bouquets are available through the city's best florists. Limited time only!</p>
-                <button onclick="location.href='allproducts.html'">Shop Now</button>
+                <a href="allproducts.html" class="register-btn">Shop Now</a>
             </div>
             <figure class="promotion-image">
                 <img src="IMAGE/promotionbg.jpg" alt="Beautiful flower bouquet">
@@ -109,9 +109,8 @@
                         <td>Up to 5% Discount</td>
                     </tr>
                 </table>
+                <a href="allproducts.html" class="register-btn">Buy Product</a>
             </div>
-
-            <button class="register-btn" onclick="location.href='allproducts.html'">Buy Product</button>
         </aside>
     </section>
     </main>

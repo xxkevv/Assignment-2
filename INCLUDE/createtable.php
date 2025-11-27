@@ -59,6 +59,7 @@ $sqli4 = "CREATE TABLE IF NOT EXISTS user (
     id INT(6) AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(50) NOT NULL,
+    profile_pic VARCHAR(255) DEFAULT NULL,
     role ENUM('admin', 'user') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";

@@ -7,7 +7,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 }
 
 if ($_SESSION['role'] !== 'admin') {
-    echo "<script>alert('Access denied! You are not admin.'); window.location.href='profile.php';</script>";
+    $_SESSION['error_message'] = 'Access denied! You are not admin.';
+    header('Location: profile.php');
     exit();
 }
 
