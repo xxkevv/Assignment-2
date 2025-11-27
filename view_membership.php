@@ -1,6 +1,6 @@
 
 <?php
-if (basename($_SERVER['PHP_SELF']) == 'view_membership.php') {
+if (basename($_SERVER['PHP_SELF']) == 'view_membership.php' && !isset($_GET['show_create'])) {
     header("Location: adminview.php?page=membership");
     exit();
 }
@@ -53,7 +53,10 @@ mysqli_close($conn);
 <link rel="stylesheet" href="styles.css">
 
 <div class="admin-page">
-    <h1 class="page-title">Memberships Form</h1>
+    <div class="page-title-row">
+        <h1 class="page-title">Memberships Form</h1>
+        <a href="membership.php" class="create-btn">+ Create</a>
+    </div>
     <?php if (empty($memberships)): ?>
         <p>No memberships found.</p>
     <?php else: ?>
@@ -62,9 +65,8 @@ mysqli_close($conn);
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email Address</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th>Login ID</th>
                         <th>Action</th>
                     </tr>
@@ -72,11 +74,10 @@ mysqli_close($conn);
                 <tbody>
                     <?php foreach ($memberships as $row): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row["id"]); ?></td>
-                            <td><?php echo htmlspecialchars($row["firstname"]); ?></td>
-                            <td><?php echo htmlspecialchars($row["lastname"]); ?></td>
-                            <td><?php echo htmlspecialchars($row["email"]); ?></td>
-                            <td><?php echo htmlspecialchars($row["loginID"]); ?></td>
+                            <td><?php echo htmlspecialchars($row['id']); ?></td>
+                            <td><?php echo htmlspecialchars($row['firstname'] . ' ' . $row['lastname']); ?></td>
+                            <td><?php echo htmlspecialchars($row['email']); ?></td>
+                            <td><?php echo htmlspecialchars($row['loginID']); ?></td>
                             <td>
                                 <div class="action-dropdown">
                                     <input type="checkbox" id="action-<?php echo $row['id']; ?>" class="action-toggle">

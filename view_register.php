@@ -52,7 +52,10 @@ mysqli_close($conn);
 
 <link rel="stylesheet" href="styles.css">
 <div class="admin-page">
-    <h1 class="page-title">Workshops</h1>
+    <div class="page-title-row">
+        <h1 class="page-title">Workshops</h1>
+        <a href="register.php" class="create-btn">+ Create</a>
+    </div>
     <?php if (empty($workshops)): ?>
         <p>No workshop registrations found.</p>
     <?php else: ?>

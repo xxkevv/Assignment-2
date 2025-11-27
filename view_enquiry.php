@@ -64,12 +64,13 @@ mysqli_close($conn);
 <body>
 
 <div class="admin-page">
-    <h1 class="page-title">Enquiries</h1>
+    <div class="page-title-row">
+        <h1 class="page-title">Enquiries</h1>
+        <a href="enquiry.php" class="create-btn">+ Create</a>
+    </div>
     
     <?php if (empty($enquiries)): ?>
-        <div class="content-card">
-            <p>No enquiries found.</p>
-        </div>
+        <p>No enquiries registration found.</p>
     <?php else: ?>
         <div class="table-container">
             <table>

@@ -1,3 +1,4 @@
+
 * {
     padding: 0;
     margin: 0;
@@ -2305,7 +2306,6 @@ nav ul li .dropdown-menu a:hover {
 }
 
 
-
 @keyframes fadeinenquiry {
     from {
         opacity: 0;
@@ -3604,12 +3604,27 @@ nav ul li .dropdown-menu a:hover {
     }
 }
 
-.page-title {
-    color: #8A2BE2; 
-    font-size: 24px;
-    margin: 20px 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #E6E6FA; 
+.page-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.create-btn {
+    background: #3E2960;
+    color: #fff;
+    padding: 0.5em 1.5em;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(62,41,96,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.create-btn:hover {
+    background: #5a3d8a;
+    box-shadow: 0 4px 16px rgba(62,41,96,0.15);
 }
 
 
@@ -3785,7 +3800,7 @@ nav ul li .dropdown-menu a:hover {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 30px;
+    padding: 20px;
     margin-bottom: 30px;
 }
 
@@ -3796,6 +3811,7 @@ nav ul li .dropdown-menu a:hover {
     margin: 20px 0 ;
     background-color: #f9f7fc;
     box-shadow: 0 4px 15px rgba(112, 75, 145, 0.1);
+    min-width: auto;
 }
 
 
@@ -3820,7 +3836,10 @@ nav ul li .dropdown-menu a:hover {
 .edit-form input,
 .edit-form select,
 .edit-form textarea {
-    width: 99%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 12px 15px;
     border: 2px solid #e0d2ec;
     border-radius: 8px;
@@ -3828,6 +3847,7 @@ nav ul li .dropdown-menu a:hover {
     transition: all 0.3s ease;
     background-color: #fff;
     font-family: inherit;
+    overflow: auto;
 }
 
 .edit-form input:focus,
@@ -4005,6 +4025,7 @@ nav ul li .dropdown-menu a:hover {
     font-weight: 500;
 }
 
+
 /* Responsive design */
 @media (max-width: 768px) {
     .detail-container {
@@ -4033,44 +4054,6 @@ nav ul li .dropdown-menu a:hover {
     }
 }
 
-#enquiry-detail {
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto; 
-    padding: 30px 20px;
-    overflow: hidden; 
-}
-
-
-#priority {
-    width: 100%;
-    max-width: 100%;
-    min-width: auto; 
-}
-
-
-.enquiryform input[type="text"],
-.enquiryform input[type="email"],
-.enquiryform input[type="tel"],
-.enquiryform select,
-.enquiryform textarea {
-    width: 100%; 
-    max-width: 100%; 
-}
-
-.form-fieldset {
-    padding: 20px 15px; 
-}
-
-@media (max-width: 768px) {
-    #detail {
-        padding: 20px 10px;
-    }
-
-    .form-group {
-        margin-bottom: 1rem;
-    }
-}
 
 .warning-message {
     color: #f39c12;

@@ -136,7 +136,7 @@ mysqli_close($conn);
                     </div>
                 </fieldset>
                 
-                <fieldset>
+                <fieldset id="enq-moredetail">
                     <legend>Enquiry Details</legend>
                     
                     <div class="form-group">
