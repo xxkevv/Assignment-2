@@ -16,33 +16,145 @@
 
     <!-- Main contents -->
     <main class="main-content">
-        <!-- Main products -->
+        <!-- Main products-->
         <section class="product-section">
             <div class="section-header">
-                <h1>Latest Products</h1>
-            </div>        
+                <h1>Handtied-Bouquet</h1>
+            </div>
+            
+            <?php
+            // Array of all products
+            $products = [
+                // Handtied Bouquet
+                [
+                    'name' => 'Mix Flowers Bouquet',
+                    'img' => 'IMAGE/hb1.jpg',
+                    'desc' => 'Mix Handtied Flowers Bouquet with premium fresh flowers',
+                    'type' => 'Premium flowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM42.75',
+                    'original_price' => 'RM45.00',
+                    'discount' => '-5%'
+                ],
+                [
+                    'name' => 'Bridal Bouquet',
+                    'img' => 'IMAGE/hb2.jpg',
+                    'desc' => 'Bridal ROM Bouquet with premium flowers',
+                    'type' => 'Premium flowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM47.50',
+                    'original_price' => 'RM50.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Roses Bouquet',
+                    'img' => 'IMAGE/hb3.jpg',
+                    'desc' => 'Roses Bouquet with premium roses',
+                    'type' => 'Premium roses',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM45.60',
+                    'original_price' => 'RM48.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Gerbera Mix',
+                    'img' => 'IMAGE/hb4.jpg',
+                    'desc' => 'Gerbera Mix Bouquet with premium daisy',
+                    'type' => 'Premium daisy',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM39.90',
+                    'original_price' => 'RM42.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Soap Roses Bouquet',
+                    'img' => 'IMAGE/hb5.jpg',
+                    'desc' => 'Soap Roses Bouquet with premium roses',
+                    'type' => 'Premium roses',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM38.00',
+                    'original_price' => 'RM40.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Bridal Bouquet',
+                    'img' => 'IMAGE/hb6.jpg',
+                    'desc' => 'Bridal ROM Bouquet with premium flowers',
+                    'type' => 'Premium flowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM46.55',
+                    'original_price' => 'RM49.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Cry Baby Bouquet',
+                    'img' => 'IMAGE/hb7.jpg',
+                    'desc' => 'Cry Baby Bouquet with premium flowers',
+                    'type' => 'Premium flowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM44.65',
+                    'original_price' => 'RM47.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Sunflower Bouquet',
+                    'img' => 'IMAGE/hb8.jpg',
+                    'desc' => 'Sunflower Bouquet with premium sunflowers',
+                    'type' => 'Premium sunflowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM40.85',
+                    'original_price' => 'RM43.00',
+                    'discount' => '-5%'
+                ],
+            ];
+
+            // Search Keyword
+            $keyword = isset($_GET['keyword']) ? strtolower(trim($_GET['keyword'])) : '';
+
+            // Product Filter
+            $filtered = [];
+            foreach ($products as $product) {
+                if ($keyword === '' ||
+                    strpos(strtolower($product['name']), $keyword) !== false ||
+                    strpos(strtolower($product['type']), $keyword) !== false ||
+                    strpos(strtolower($product['desc']), $keyword) !== false ||
+                    strpos(strtolower($product['current_price']), $keyword) !== false
+                ) {
+                    $filtered[] = $product;
+                }
+            }
+            ?>
+
+            <form method="get" action="" class="search-form modern-search-form">
+                <input type="text" name="keyword" placeholder="Search products..." value="<?php echo htmlspecialchars($keyword); ?>" class="search-input modern-search-input">
+                <button type="submit" class="btn modern-search-btn">🔍 Search</button>
+            </form>
+
             <div class="product-grid">
-                <!-- Product 1 -->
+            <?php if (count($filtered) === 0): ?>
+                <p>No products found.</p>
+            <?php else: ?>
+                <?php foreach ($filtered as $product): ?>
                 <div class="product-card">
-                    <div class="discount-badge"><p>-5%</p></div>
+                    <div class="discount-badge"><p><?php echo htmlspecialchars($product['discount']); ?></p></div>
                     <figure>
-                        <img src="IMAGE/hb1.jpg" alt="HB 1" class="product-img">
-                        <figcaption>Mix Handtied Flowers Bouquet with premium fresh flowers</figcaption>
+                        <img src="<?php echo htmlspecialchars($product['img']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product-img">
+                        <figcaption><?php echo htmlspecialchars($product['desc']); ?></figcaption>
                     </figure>
-                    <h2 class="product-name">Mix Flowers Bouquet</h2>
+                    <h3 class="product-name"><?php echo htmlspecialchars($product['name']); ?></h3>
                     <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
+                        <div>
+                            <dt>Type:</dt>
+                            <dd><?php echo htmlspecialchars($product['type']); ?></dd>
+                        </div>
+                        <div>
+                            <dt>Delivery:</dt>
+                            <dd><?php echo htmlspecialchars($product['delivery']); ?></dd>
+                        </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM42.75</span>
-                        <span class="original-price">RM45.00</span>
+                        <span class="current-price"><?php echo htmlspecialchars($product['current_price']); ?></span>
+                        <span class="original-price"><?php echo htmlspecialchars($product['original_price']); ?></span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -50,214 +162,13 @@
                         <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
                     </div>
                 </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb2.jpg" alt="HB 2" class="product-img">
-                        <figcaption>Bridal ROM Bouquet with premium flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Bridal Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM47.50</span>
-                        <span class="original-price">RM50.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb3.jpg" alt="HB 3" class="product-img">
-                        <figcaption>Roses Bouquet with premium roses </figcaption>
-                    </figure>
-                    <h3 class="product-name">Roses Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium roses</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM45.60</span>
-                        <span class="original-price">RM48.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb4.jpg" alt="HB 4" class="product-img">
-                        <figcaption>Gerbera Mix Bouquet with premium daisy</figcaption>
-                    </figure>
-                    <h3 class="product-name">Gerbera Mix</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium daisy</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM39.90</span>
-                        <span class="original-price">RM42.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb5.jpg" alt="HB 5" class="product-img">
-                        <figcaption>Soap Roses Bouquet with premium roses</figcaption>
-                    </figure>
-                    <h3 class="product-name">Soap Roses Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium roses</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM38.00</span>
-                        <span class="original-price">RM40.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 6 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb6.jpg" alt="HB 6" class="product-img">
-                        <figcaption>Bridal ROM Bouquet with premium flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Bridal Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM46.55</span>
-                        <span class="original-price">RM49.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb7.jpg" alt="HB 7" class="product-img">
-                        <figcaption>Cry Baby Bouquet with premium flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Cry Baby Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM44.65</span>
-                        <span class="original-price">RM47.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>-5%</p></div>
-                    <figure>
-                        <img src="IMAGE/hb8.jpg" alt="HB 8" class="product-img">
-                        <figcaption>Sunflower Bouquet with premium sunflowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Sunflower Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium sunflowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM40.85</span>
-                        <span class="original-price">RM43.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             </div>
         </section>
 
-        <!-- Aside right-->
-        <?php include("aside.php");?>    
+         <!-- Aside right-->
+         <?php include("aside.php"); ?>
     </main>
     <br>
     

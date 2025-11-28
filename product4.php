@@ -14,36 +14,147 @@
 <!-- Navigation bar -->
     <?php include("navigation.php"); ?>
 
-    <!-- Main contents -->
+     <!-- Main contents -->
     <main class="main-content">
-        <!-- Main products -->
+        <!-- Main products-->
         <section class="product-section">
             <div class="section-header">
-                <h1>Latest Products</h1>
+                <h1>Graduation</h1>
             </div>
             
+            <?php
+            // Array of all products
+            $products = [
+                // Graduation
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation1.jpg',
+                    'desc' => 'Graduation Bouquet with premium sunflower',
+                    'type' => 'Premium Sunflower',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM47.50',
+                    'original_price' => 'RM50.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation2.jpg',
+                    'desc' => 'Graduation Bouquet with premium pompom chrysanthemum',
+                    'type' => 'Premium chrysanthemum',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM38.00',
+                    'original_price' => 'RM40.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation3.jpg',
+                    'desc' => 'Graduation Bouquet with premium baby\'s breath flowers',
+                    'type' => 'Baby\'s breath flowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM60.00',
+                    'original_price' => 'RM63.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation4.jpg',
+                    'desc' => 'Graduation Bouquet with premium dyed baby\'s breath flowers',
+                    'type' => 'Premium baby\'s breath flowers',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM62.70',
+                    'original_price' => 'RM66.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation5.jpg',
+                    'desc' => 'Graduation Bouquet with premium sunflower and baby\'s breath flowers',
+                    'type' => 'Premium sunflower',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM49.40',
+                    'original_price' => 'RM52.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation6.jpg',
+                    'desc' => 'Graduation Bouquet with premium pompom chrysanthemum',
+                    'type' => 'Premium chrysanthemum',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM50.35',
+                    'original_price' => 'RM53.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation7.jpg',
+                    'desc' => 'Graduation 7 with premium pink chrysanthemum',
+                    'type' => 'Premium pink chrysanthemum',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM51.30',
+                    'original_price' => 'RM54.00',
+                    'discount' => '5%'
+                ],
+                [
+                    'name' => 'Graduation Bouquet',
+                    'img' => 'IMAGE/graduation8.jpg',
+                    'desc' => 'Graduation Bouquet with premium sunflower',
+                    'type' => 'Premium sunflower',
+                    'delivery' => 'Same day available',
+                    'current_price' => 'RM55.70',
+                    'original_price' => 'RM58.65',
+                    'discount' => '5%'
+                ]
+            ];
+
+            // Search Keyword
+            $keyword = isset($_GET['keyword']) ? strtolower(trim($_GET['keyword'])) : '';
+
+            // Product Filter
+            $filtered = [];
+            foreach ($products as $product) {
+                if ($keyword === '' ||
+                    strpos(strtolower($product['name']), $keyword) !== false ||
+                    strpos(strtolower($product['type']), $keyword) !== false ||
+                    strpos(strtolower($product['desc']), $keyword) !== false ||
+                    strpos(strtolower($product['current_price']), $keyword) !== false
+                ) {
+                    $filtered[] = $product;
+                }
+            }
+            ?>
+
+            <form method="get" action="" class="search-form modern-search-form">
+                <input type="text" name="keyword" placeholder="Search products..." value="<?php echo htmlspecialchars($keyword); ?>" class="search-input modern-search-input">
+                <button type="submit" class="btn modern-search-btn">🔍 Search</button>
+            </form>
+
             <div class="product-grid">
-                <!-- Product 1 -->
+            <?php if (count($filtered) === 0): ?>
+                <p>No products found.</p>
+            <?php else: ?>
+                <?php foreach ($filtered as $product): ?>
                 <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
+                    <div class="discount-badge"><p><?php echo htmlspecialchars($product['discount']); ?></p></div>
                     <figure>
-                        <img src="IMAGE/graduation1.jpg" alt="Graduation 1" class="product-img">
-                        <figcaption>Graduation Bouquet with premium sunflower</figcaption>
+                        <img src="<?php echo htmlspecialchars($product['img']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product-img">
+                        <figcaption><?php echo htmlspecialchars($product['desc']); ?></figcaption>
                     </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
+                    <h3 class="product-name"><?php echo htmlspecialchars($product['name']); ?></h3>
                     <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium Sunflower</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
+                        <div>
+                            <dt>Type:</dt>
+                            <dd><?php echo htmlspecialchars($product['type']); ?></dd>
+                        </div>
+                        <div>
+                            <dt>Delivery:</dt>
+                            <dd><?php echo htmlspecialchars($product['delivery']); ?></dd>
+                        </div>
                     </dl>
                     <div class="product-price">
-                        <span class="current-price">RM47.50</span>
-                        <span class="original-price">RM50.00</span>
+                        <span class="current-price"><?php echo htmlspecialchars($product['current_price']); ?></span>
+                        <span class="original-price"><?php echo htmlspecialchars($product['original_price']); ?></span>
                     </div>
                     <div class="product-actions">
                         <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
@@ -51,217 +162,16 @@
                         <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
                     </div>
                 </div>
-                
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation2.jpg" alt="Graduation 2" class="product-img">
-                        <figcaption>Graduation Bouquet with premium pompom chrysanthemum</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium chrysanthemum</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM38.00</span>
-                        <span class="original-price">RM40.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation3.jpg" alt="Graduation 3" class="product-img">
-                        <figcaption>Graduation Bouquet with premium baby's breath flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Baby's breath flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM60.00</span>
-                        <span class="original-price">RM63.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation4.jpg" alt="Graduation 4" class="product-img">
-                        <figcaption>Graduation Bouquet with premium dyed baby's breath flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium baby's breath flowers</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM62.70</span>
-                        <span class="original-price">RM66.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation5.jpg" alt="Graduation 5" class="product-img">
-                        <figcaption>Graduation Bouquet with premium sunflower and baby's breath flowers</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium sunflower</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM49.40</span>
-                        <span class="original-price">RM52.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-                
-                <!-- Product 6 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation6.jpg" alt="Graduation 6" class="product-img">
-                        <figcaption>Graduation Bouquet with premium pompom chrysanthemum</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium chrysanthemum</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM50.35</span>
-                        <span class="original-price">RM53.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation7.jpg" alt="Graduation 7" class="product-img">
-                        <figcaption>Graduation 7 with premium pink chrysanthemum</figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium pink chrysanthemum</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM51.30</span>
-                        <span class="original-price">RM54.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="product-card">
-                    <div class="discount-badge"><p>5%</p></div>
-                    <figure>
-                        <img src="IMAGE/graduation8.jpg" alt="Graduation 8" class="product-img">
-                        <figcaption>Graduation Bouquet with premium sunflower </figcaption>
-                    </figure>
-                    <h3 class="product-name">Graduation Bouquet</h3>
-                    <dl class="product-specs">
-                    <div>
-                        <dt>Type:</dt>
-                        <dd>Premium sunflower</dd>
-                    </div>
-                    <div>
-                        <dt>Delivery:</dt>
-                        <dd>Same day available</dd>
-                    </div>
-                    </dl>
-                    <div class="product-price">
-                        <span class="current-price">RM55.70</span>
-                        <span class="original-price">RM58.65</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn wishlist-btn"><img src="IMAGE/wishlist.svg" alt="wishlist"></button>
-                        <button class="btn add-to-cart">Add To Cart</button>
-                        <button class="btn quick-view"><img src="IMAGE/view2.svg" alt="view"> </button>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             </div>
         </section>
 
-        <!-- Aside right-->
-        <?php include("aside.php");?>
+         <!-- Aside right-->
+         <?php include("aside.php"); ?>
     </main>
     <br>
-   
+    
     <!-- Footer  -->
     <?php include("footer.php"); ?>
 
