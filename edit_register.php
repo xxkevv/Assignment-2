@@ -141,18 +141,18 @@ mysqli_close($conn);
                     <input type="text" id="state" name="state" 
                            value="<?php echo htmlspecialchars($workshop['state'] ?? ''); ?>">
                     
-                    <label for="dob">Date of Birth</label>
-                    <input type="date" id="dob" name="dob" 
-                           value="<?php echo htmlspecialchars($workshop['dateofbirth'] ?? ''); ?>">
+                          <label for="dateofbirth">Date of Birth</label>
+                          <input type="date" id="dateofbirth" name="dateofbirth" 
+                              value="<?php echo htmlspecialchars($workshop['dateofbirth'] ?? ''); ?>">
                 </fieldset>
                 
                 <fieldset>
                     <legend>Account & Workshop Details</legend>
                     
                     
-                    <label for="membership_type">Membership Type</label>
-                    <input type="text" id="membership_type" name="membership_type" 
-                           value="<?php echo htmlspecialchars($workshop['membershiptype'] ?? ''); ?>">
+                    <label for="membershiptype">Membership Type</label>
+                    <input type="text" id="membershiptype" name="membershiptype" 
+                            value="<?php echo htmlspecialchars($workshop['membershiptype'] ?? ''); ?>">
                     
                     <label for="interests">Interests</label>
                     <input type="text" id="interests" name="interests" 
@@ -166,9 +166,9 @@ mysqli_close($conn);
                     <textarea id="comments" name="comments" rows="4"><?php echo htmlspecialchars($workshop['comments'] ?? ''); ?></textarea>
                 </fieldset>
                 
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-save">Save Changes</button>
-                    <a href="view_register.php" class="btn btn-cancel">Cancel</a>
+                <div class="editform-actions">
+                    <button type="submit" class="editbtn editbtn-save">Save Changes</button>
+                    <a href="view_register.php" class="editbtn editbtn-cancel">Cancel</a>
                 </div>
             </form>
         </div>
@@ -177,7 +177,7 @@ mysqli_close($conn);
             Workshop record not found.
         </div>
         <div class="form-actions">
-            <a href="view_register.php" class="btn btn-cancel">Back to Workshop List</a>
+            <a href="view_register.php" class="editbtn editbtn-cancel">Back to Workshop List</a>
         </div>
     <?php endif; ?>
 </div>

@@ -113,9 +113,9 @@
                                required>
                     </fieldset>
                     
-                    <div class="form-actions">
-                        <button type="submit" name="update" class="btn btn-save">Save Changes</button>
-                        <a href="view_membership.php" class="btn btn-cancel">Cancel</a>
+                    <div class="editform-actions">
+                        <button type="submit" name="update" class="editbtn editbtn-save">Save Changes</button>
+                        <a href="view_membership.php" class="editbtn editbtn-cancel">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -130,7 +130,7 @@
                 ?>
             </div>
             <div class="form-actions">
-                <a href="view_membership.php" class="btn btn-cancel">Back to Membership List</a>
+                <a href="view_membership.php" class="editbtn editbtn-cancel">Back to Membership List</a>
             </div>
         <?php endif; ?>
     </div>

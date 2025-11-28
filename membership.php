@@ -48,14 +48,14 @@
         <label for="loginID">Login ID:</label>
         <input id="loginID" name="loginID" type="text" 
                 maxlength="20" required
-                pattern="^[A-Za-z]+$"
+                pattern="^[A-Za-z0-9]+$"
                 title="Alphabetical characters only">
 
         <!-- Password -->
         <label for="password">Password:</label>
         <input id="password" name="password" type="password" 
                 maxlength="25" required
-                pattern="^[A-Za-z]+$"
+                pattern="^[A-Za-z0-9]+$"
                 title="Alphabetical characters only">
 
         </fieldset>

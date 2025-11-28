@@ -66,7 +66,7 @@ mysqli_close($conn);
 <div class="admin-page">
     <div class="page-title-row">
         <h1 class="page-title">Enquiries</h1>
-        <a href="enquiry.php" class="create-btn">+ Create</a>
+        <a href="create_enquiry.php" class="create-btn">+ Create</a>
     </div>
     
     <?php if (empty($enquiries)): ?>

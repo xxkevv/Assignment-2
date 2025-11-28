@@ -175,8 +175,8 @@ mysqli_close($conn);
                 </fieldset>
                 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-save">Save Changes</button>
-                    <a href="view_enquiry.php" class="btn btn-cancel">Back</a>
+                    <button type="submit" class="editbtn editbtn-save">Save Changes</button>
+                    <a href="view_enquiry.php" class="editbtn editbtn-cancel">Back</a>
                 </div>
             </form>
         </div>
@@ -185,7 +185,7 @@ mysqli_close($conn);
             Enquiry record not found.
         </div>
         <div class="form-actions">
-            <a href="view_enquiry.php" class="btn btn-cancel">Back to Enquiry List</a>
+            <a href="view_enquiry.php" class="editbtn btn-cancel">Back to Enquiry List</a>
         </div>
     <?php endif; ?>
 </div>

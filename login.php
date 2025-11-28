@@ -35,7 +35,8 @@
                 id="name"
                 name="Login" 
                 maxlength="20"
-                title="Login must be letters only, up to 20 characters."
+                pattern="[A-Za-z0-9]{1,20}"
+                title="Login must be letters or numbers, up to 20 characters."
                 placeholder="Type your username" required> 
             </div>
             
@@ -45,8 +46,8 @@
                 id="password"
                 name="password"
                 maxlength="25"
-                pattern="[A-Za-z]{1,25}"
-                title="Login must be letters only, up to 25 characters."
+                pattern="[A-Za-z0-9]{1,25}"
+                title="Password must be letters or numbers, up to 25 characters."
                 placeholder="Type your password" required></div>
                 
 

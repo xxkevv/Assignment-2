@@ -54,7 +54,7 @@ mysqli_close($conn);
 <div class="admin-page">
     <div class="page-title-row">
         <h1 class="page-title">Workshops</h1>
-        <a href="register.php" class="create-btn">+ Create</a>
+        <a href="create_register.php" class="create-btn">+ Create</a>
     </div>
     <?php if (empty($workshops)): ?>
         <p>No workshop registrations found.</p>
@@ -68,9 +68,7 @@ mysqli_close($conn);
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone Number</th>
-                        <th>Address</th>
                         <th>Date of Birth</th>
-                        <th>Membership Type</th>
                         <th>Interests</th>
                         <th>Number of Participants</th>
                         <th>Additional Comments</th>
@@ -84,9 +82,7 @@ mysqli_close($conn);
                             <td><?php echo htmlspecialchars($workshop['firstname'] . ' ' . $workshop['lastname']); ?></td>
                             <td><?php echo htmlspecialchars($workshop['email']); ?></td>
                             <td><?php echo htmlspecialchars($workshop['phone'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($workshop['street'] . ", " . $workshop['city'] . ", " .$workshop['state'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['dateofbirth'] ?? 'N/A'); ?></td>
-                            <td><?php echo htmlspecialchars($workshop['membershiptype'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['interests'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars($workshop['participants'] ?? 'N/A'); ?></td>
                             <td><?php echo htmlspecialchars(substr($workshop['comments'] ?? '', 0, 50)); ?></td>

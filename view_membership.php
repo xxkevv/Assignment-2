@@ -1,4 +1,3 @@
-
 <?php
 if (basename($_SERVER['PHP_SELF']) == 'view_membership.php' && !isset($_GET['show_create'])) {
     header("Location: adminview.php?page=membership");
@@ -12,19 +11,34 @@ $dbname = "Root_Flower";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $deleteId = $_POST['delete_id'];
     $conn = mysqli_connect($servername, $username, $password, $dbname);
-    
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
+    $loginID = null;
+    $getLoginID = $conn->prepare("SELECT loginID FROM membership WHERE id = ?");
+    $getLoginID->bind_param("i", $deleteId);
+    $getLoginID->execute();
+    $getLoginID->bind_result($loginID);
+    $getLoginID->fetch();
+    $getLoginID->close();
+
+    // Delete membership
     $deleteStmt = $conn->prepare("DELETE FROM membership WHERE id = ?");
     $deleteStmt->bind_param("i", $deleteId);
     $deleteStmt->execute();
     $deleteStmt->close();
 
+    // Delete user
+    if (!empty($loginID)) {
+        $deleteUser = $conn->prepare("DELETE FROM user WHERE username = ?");
+        $deleteUser->bind_param("s", $loginID);
+        $deleteUser->execute();
+        $deleteUser->close();
+    }
+
     $result = mysqli_query($conn, "SELECT id FROM membership ORDER BY id ASC");
     $records = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    
     $newId = 1;
     foreach ($records as $record) {
         $updateStmt = $conn->prepare("UPDATE membership SET id = ? WHERE id = ?");
@@ -33,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         $updateStmt->close();
         $newId++;
     }
-
     mysqli_query($conn, "ALTER TABLE membership AUTO_INCREMENT = " . $newId);
     mysqli_close($conn);
 }
@@ -55,7 +68,7 @@ mysqli_close($conn);
 <div class="admin-page">
     <div class="page-title-row">
         <h1 class="page-title">Memberships Form</h1>
-        <a href="membership.php" class="create-btn">+ Create</a>
+        <a href="create_membership.php" class="create-btn">+ Create</a>
     </div>
     <?php if (empty($memberships)): ?>
         <p>No memberships found.</p>
