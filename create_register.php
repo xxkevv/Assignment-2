@@ -1,0 +1,232 @@
+<?php
+// Redirect if accessed directly
+if (basename($_SERVER['PHP_SELF']) == 'create_register.php' && !isset($_SERVER['HTTP_REFERER'])) {
+    header("Location: adminview.php?page=register");
+    exit();
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Root_Flower";
+
+$success = false;
+$error = "";
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validate required fields
+    $requiredFields = [
+        'firstname', 'lastname', 'email', 'street', 'city', 
+        'state', 'postcode', 'phone', 'dob', 'participants'
+    ];
+    $missingFields = [];
+    foreach ($requiredFields as $field) {
+        if (empty($_POST[$field])) {
+            $missingFields[] = $field;
+        }
+    }
+
+    // Check if at least one membership type is selected
+    if (empty($_POST['membershipType'])) {
+        $missingFields[] = 'membershipType';
+    }
+
+    if (!empty($missingFields)) {
+        $error = "Please fill in all required fields: " . implode(', ', $missingFields);
+    } else {
+        // Connect to database
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // Process interests array
+        $interests = isset($_POST['interests']) ? implode(',', $_POST['interests']) : '';
+
+        // Prepare and bind for workshop table
+        $stmt = $conn->prepare("INSERT INTO workshop (
+            firstname, lastname, email, street, city, state, postcode,
+            membershiptype, interests, phone, dateofbirth, participants, comments
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        $stmt->bind_param(
+            "sssssssssssis",
+            $_POST['firstname'],
+            $_POST['lastname'],
+            $_POST['email'],
+            $_POST['street'],
+            $_POST['city'],
+            $_POST['state'],
+            $_POST['postcode'],
+            $_POST['membershipType'],
+            $interests,
+            $_POST['phone'],
+            $_POST['dob'],
+            $_POST['participants'],
+            $_POST['comments']
+        );
+
+        // Execute and check success
+        if ($stmt->execute()) {
+            $success = true;
+        } else {
+            $error = "Error saving registration: " . $stmt->error;
+        }
+
+        $stmt->close();
+        mysqli_close($conn);
+
+        // Redirect after successful submission to prevent resubmission
+        if ($success) {
+            header("Location: view_register.php?success=1");
+            exit();
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Registration - Root & Flower</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div class="admin-page">
+        <div class="page-title-row">
+            <h1 class="page-title">Create New Registration</h1>
+            <a href="view_register.php" class="back-btn">← Back to List</a>
+        </div>
+
+        <?php if (!empty($error)): ?>
+            <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+
+        <form method="POST" action="" class="enquiry-form">
+            <!-- Personal Info -->
+            <div class="form-group">
+                <label for="firstname">First Name *</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Last Name *</label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="street">Street Address *</label>
+                <input type="text" id="street" name="street" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City / Town *</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <div class="form-group">
+                <label for="state">State / Federal Territory *</label>
+                <select id="state" name="state" required>
+                    <option value="">-- Select State or Territory --</option>
+                    <option value="Johor">Johor</option>
+                    <option value="Kedah">Kedah</option>
+                    <option value="Kelantan">Kelantan</option>
+                    <option value="Melaka">Melaka</option>
+                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                    <option value="Pahang">Pahang</option>
+                    <option value="Penang">Penang</option>
+                    <option value="Perak">Perak</option>
+                    <option value="Perlis">Perlis</option>
+                    <option value="Sabah">Sabah</option>
+                    <option value="Sarawak">Sarawak</option>
+                    <option value="Selangor">Selangor</option>
+                    <option value="Terengganu">Terengganu</option>
+                    <option value="Kuala Lumpur">Kuala Lumpur (FT)</option>
+                    <option value="Labuan">Labuan (FT)</option>
+                    <option value="Putrajaya">Putrajaya (FT)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="postcode">Postcode *</label>
+                <input
+                    id="postcode"
+                    name="postcode"
+                    type="text"
+                    pattern="^\d{5}$"
+                    maxlength="6"
+                    required
+                    placeholder="e.g. 93000">
+            </div>
+
+            <!-- Membership Type -->
+            <fieldset class="form-group">
+                <legend>Membership Type *</legend>
+                <div class="workshop-radio">
+                    <label><input type="radio" name="membershipType" value="standard" id="standard" required> Standard</label>
+                    <label><input type="radio" name="membershipType" value="premium" id="premium"> Premium</label>
+                </div>
+            </fieldset>
+
+            <!-- Interests -->
+            <fieldset class="form-group">
+                <legend>Interests</legend>
+                <div class="workshop-check">
+                    <label><input type="checkbox" name="interests[]" value="products" id="products"> Products</label>
+                    <label><input type="checkbox" name="interests[]" value="workshops" id="workshops"> Workshops</label>
+                    <label><input type="checkbox" name="interests[]" value="promotions" id="promotions"> Promotions</label>
+                </div>
+            </fieldset>
+
+            <!-- Contact Info -->
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    pattern="[0-9]+"
+                    maxlength="20"
+                    required
+                    placeholder="e.g. 0123456789">
+            </div>
+               
+            <div class="form-group">
+                <label for="dob">Date of Birth *</label>
+                <input id="dob" name="dob" type="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="participants">Number of Participants *</label>
+                <input
+                    id="participants"
+                    name="participants"
+                    type="number"
+                    min="1"
+                    max="99"
+                    required
+                    placeholder="1">
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Any special requests or notes..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="submitt-btn">Save Registration</button>
+                <a href="view_register.php" class="cancell-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
