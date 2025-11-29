@@ -21,14 +21,14 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
     <main>
     <!-- Workshop Background -->
     <section class="workshop">
             <div class="main-workshop">
                 <h1>Flower Arrangement Workshop</h1>
                 <p>Unleash your creativity with our flower arrangement workshops!</p>
-                <a href="register.html" class="register-btn">Book Now</a>
+                <a href="register.php" class="register-btn">Book Now</a>
             </div>
             <figure class="workshop-image">
                 <img src="IMAGE/workshopbg.jpg" alt="Workshop Image">
@@ -164,9 +164,9 @@
     </main>
   
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
 
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 
 
 </body>

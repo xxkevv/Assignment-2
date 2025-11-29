@@ -20,14 +20,14 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <main>
         <section class="promotion">
             <div class="main-promotion">
                 <h1>Check Our Latest Promotion</h1>
                 <p>Beautiful bouquets are available through the city's best florists. Limited time only!</p>
-                <a href="allproducts.html" class="register-btn">Shop Now</a>
+                <a href="allproducts.php" class="register-btn">Shop Now</a>
             </div>
             <figure class="promotion-image">
                 <img src="IMAGE/promotionbg.jpg" alt="Beautiful flower bouquet">
@@ -117,15 +117,15 @@
                         <td>Up to 5% Discount</td>
                     </tr>
                 </table>
-                <a href="allproducts.html" class="register-btn">Buy Product</a>
+                <a href="allproducts.php" class="register-btn">Buy Product</a>
             </div>
         </aside>
     </section>
     </main>
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 
 </body>
 </html>

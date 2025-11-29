@@ -23,7 +23,7 @@
     <?php include("INCLUDE/connection.php"); ?>
     <?php include("INCLUDE/createtable.php"); ?>
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
 <!-- Main content -->
     <section class="background-image">
@@ -113,8 +113,8 @@
 
 <!-- Footer  -->
     
-    <?php include("footer.php"); ?>
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 
     <?php
     $servername = "localhost";

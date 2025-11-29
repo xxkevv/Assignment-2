@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <main class="acknowledge">
     <h1>Acknowledgements</h1>
@@ -78,8 +78,8 @@
 
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
 
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 </body>
 </html>

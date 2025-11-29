@@ -21,7 +21,7 @@
 <body>
     <?php 
     session_start();
-    include("navigation.php"); 
+    include("INCLUDE/navigation.php"); 
     ?>
     
     <section class="login-section">

@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <div class="container">
         <!-- Profile Pic -->
@@ -54,14 +54,13 @@
         </table>
         <div class="button-group">
         <a href="mailto:104405515@students.swinburne.edu.my" class="email-button">Email me 🌸</a>
-        <a href="profile.html" class="back-button">Back to Profiles</a>
+        <a href="profile.php" class="back-button">Back to Profiles</a>
         </div>
     </div>
-  >
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 </body>
 </html>
    

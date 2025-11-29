@@ -5,7 +5,7 @@
  * Description: Admin view for membership registrations.
  * Date: 2025
  */
-if (basename($_SERVER['PHP_SELF']) == 'view_membership.php' && !isset($_GET['show_create'])) {
+if (basename($_SERVER['PHP_SELF']) == 'view_membership.php') {
     header("Location: adminview.php?page=membership");
     exit();
 }

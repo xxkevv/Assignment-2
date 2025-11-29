@@ -42,7 +42,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 </head>
 <body>
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <main class="workshop-reg-container">
     <section class="workshop-regiseration">
@@ -221,8 +221,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     </main>
 
 <!-- Footer  -->
-    <?php include("footer.php"); ?>
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 </body>
 </html>
 

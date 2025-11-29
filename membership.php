@@ -19,7 +19,7 @@
 </head>
 
     <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <main class="membership-reg-container">
         <section class="membership-text">
@@ -78,8 +78,8 @@
     </main>
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 
 </body>
 </html>

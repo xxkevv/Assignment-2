@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>User Profile</title>
 </head>
 <body>
-<?php include("navigation.php"); ?>
+<?php include("INCLUDE/navigation.php"); ?>
 <section class="profile-page">
     <div class="user-profile-card">
         <h1 class="user-profile-title">User Profile</h1>

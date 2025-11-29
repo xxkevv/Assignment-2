@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <section class="profile-page">
     <div class="profile-container">

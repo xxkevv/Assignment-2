@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <section class="enhancement">
         <h1>Enhancement</h1>
@@ -34,9 +34,9 @@
                         <p>A dropdown menu is a vertical navigation menu that displays a list of options when you click or hover over a horizontal menu item. The menu expands, or "drops down" below the main menu, allowing you to select an option without navigating away from the current page or interface.</p>
                         <p> You can find this enhancement on:</p>
                         <div class="enhancement-link">
-                            <a href="allproducts.html">Product</a>
-                            <a href="workshop.html">Activities</a>
-                            <a href="register.html">Register</a>
+                            <a href="allproducts.php">Product</a>
+                            <a href="workshop.php">Activities</a>
+                            <a href="register.php">Register</a>
                         </div>
                     </div>
                     <div class="enh-references">
@@ -53,11 +53,11 @@
                         <p>A hamburger menu is an enhancement that allow user to resize the page </p>
                         <p> You can find this enhancement on:</p>
                         <div class="enhancement-link">
-                            <a href="index.html">Home</a>
-                            <a href="allproducts.html">Product</a>
-                            <a href="workshop.html">Activities</a>
-                            <a href="enquiry.html">Enquiry</a>
-                            <a href="login.html">Login</a>
+                            <a href="index.php">Home</a>
+                            <a href="allproducts.php">Product</a>
+                            <a href="workshop.php">Activities</a>
+                            <a href="enquiry.php">Enquiry</a>
+                            <a href="login.php">Login</a>
                         </div>
                     </div>
                     <div class="enh-references">
@@ -74,7 +74,7 @@
                         <p>Automatic Image Slider is an enhancement that works to replace an image over a certain period of time. In this enhancement, I use keyframes to determine when the image will appear and disappear. </p>
                         <p> You can find this enhancement on:</p>
                         <div class="enhancement-link">
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </div>
                     </div>
                     <div class="enh-references">
@@ -91,7 +91,7 @@
                         <p>Image Slider is is an enhancement that allows users to slide the image they see using radio input types. This is very useful and efficient for displaying many images at once. </p>
                         <p> You can find this enhancement on:</p>
                         <div class="enhancement-link">
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </div>
                     </div>
                     <div class="enh-references">
@@ -108,8 +108,8 @@
                         <p>Box Hover Effect is an enhancement used to provide an interactive appearance to users when they hover over content, such as a box. When the user hovers, a shadow effect and a selected animation using translateY will appear. </p>
                         <p> You can find this enhancement on:</p>
                         <div class="enhancement-link">
-                            <a href="index.html">Home</a>
-                            <a href="promotion.html">Promotion</a>
+                            <a href="index.php">Home</a>
+                            <a href="promotion.php">Promotion</a>
                         </div>
                     </div>
                     <div class="enh-references">
@@ -122,6 +122,6 @@
     </section>
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
 </body>
 </html>

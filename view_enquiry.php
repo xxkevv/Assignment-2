@@ -5,7 +5,7 @@
  * Description: Admin view for customer enquiries.
  * Date: 2025
  */
-// Redirect if accessed directly
+
 if (basename($_SERVER['PHP_SELF']) == 'view_enquiry.php') {
     header("Location: adminview.php?page=enquiry");
     exit();

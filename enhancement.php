@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <section class="enhancement-selection">
         <h1>Select Enhancement Page</h1>
@@ -39,6 +39,6 @@
     </section>
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
 </body>
 </html>

@@ -72,10 +72,30 @@ mysqli_close($conn);
 </head>
 
 <body>
+    <!-- Navigation bar -->
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <div class="process">
     <div class="processcontainer">
     <div class="processcard">
+    <?php
+    // Server-side validation
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $required_fields = ["fname", "lname", "email", "street", "city", "state", "postcode", "membershipType", "phone", "dob", "participants"];
+        $missing_fields = [];
+        
+        foreach ($required_fields as $field) {
+            if (empty($_POST[$field])) {
+                $missing_fields[] = $field;
+            }
+        }
+        
+        if (!empty($missing_fields)) {
+            echo "<h1>Registration Failed</h1>";
+            echo "<p>Please fill in all required fields.</p>";
+            echo "<div class='button-membership-process'><a href='javascript:history.back()'>Go Back</a></div>";
+        } else {
+    ?>
     <h1>Welcome <?php echo htmlspecialchars($_POST["fname"]); ?>!</h1> 
 
     <p>Your workshop registration has been processed successfully</p>
@@ -156,9 +176,17 @@ mysqli_close($conn);
         <a href="index.php">Back to Website</a>
         </div>
     </div>
+    <?php 
+        }
+    } else {
+        echo "<h1>Error</h1><p>Invalid request method.</p>";
+    }
+    ?>
     </div>
     </div>
     </div>
 
+    <!-- Footer -->
+    <?php include("INCLUDE/footer.php"); ?>
 </body>
 </html>

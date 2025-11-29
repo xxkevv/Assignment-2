@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <div class="container">
         <!-- Profile Pic -->
@@ -64,12 +64,12 @@
         </table>
         <div class="button-group">
         <a href="mailto:104406893@students.swinburne.edu.my?subject=Contact%20from%20Root%20Flower%20Website&body=Hello%20Jiangyu,%20I%20would%20like%20to%20get%20in%20touch%20with%20you." class="email-button" title="Click to open your email client">Email me 🌸</a>
-        <a href="profile.html" class="back-button">Back to Profiles</a>
+        <a href="profile.php" class="back-button">Back to Profiles</a>
         </div>
     </div>
 
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
 
     </footer>
         

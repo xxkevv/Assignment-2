@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation bar -->
-    <?php include("navigation.php"); ?>
+    <?php include("INCLUDE/navigation.php"); ?>
 
     <!-- Main contents -->
     <main class="main-content">
@@ -423,14 +423,14 @@
         </section>
 
          <!-- Aside right-->
-         <?php include("aside.php"); ?>
+         <?php include("INCLUDE/aside.php"); ?>
     </main>
     <br>
     
     <!-- Footer  -->
-    <?php include("footer.php"); ?>
+    <?php include("INCLUDE/footer.php"); ?>
 
-    <?php include("profileicon.php"); ?>
+    <?php include("INCLUDE/profileicon.php"); ?>
 </body>
 </html>
     

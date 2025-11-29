@@ -14,7 +14,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 if ($_SESSION['role'] !== 'admin') {
     $_SESSION['error_message'] = 'Access denied! You are not admin.';
-    header('Location: profile.php');
+    header('Location: index.php');
     exit();
 }
 
