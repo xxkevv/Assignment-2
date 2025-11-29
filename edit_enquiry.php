@@ -112,14 +112,14 @@ mysqli_close($conn);
                         <label for="firstname">First Name *</label>
                         <input type="text" id="firstname" name="firstname" 
                                value="<?php echo htmlspecialchars($enquiry['firstname']); ?>" 
-                               required>
+                               required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                     </div>
                     
                     <div class="form-group">
                         <label for="lastname">Last Name *</label>
                         <input type="text" id="lastname" name="lastname" 
                                value="<?php echo htmlspecialchars($enquiry['lastname']); ?>" 
-                               required>
+                               required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                     </div>
                     
                     <div class="form-group">

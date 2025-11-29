@@ -113,12 +113,12 @@ mysqli_close($conn);
                     <label for="firstname">First Name *</label>
                     <input type="text" id="firstname" name="firstname" 
                            value="<?php echo htmlspecialchars($workshop['firstname']); ?>" 
-                           required>
+                           required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                     
                     <label for="lastname">Last Name *</label>
                     <input type="text" id="lastname" name="lastname" 
                            value="<?php echo htmlspecialchars($workshop['lastname']); ?>" 
-                           required>
+                           required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                     
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="email" 
@@ -135,7 +135,8 @@ mysqli_close($conn);
                     
                     <label for="city">City</label>
                     <input type="text" id="city" name="city" 
-                           value="<?php echo htmlspecialchars($workshop['city'] ?? ''); ?>">
+                           value="<?php echo htmlspecialchars($workshop['city'] ?? ''); ?>"
+                           pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                     
                     <label for="state">State</label>
                     <input type="text" id="state" name="state" 

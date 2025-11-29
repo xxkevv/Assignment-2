@@ -95,12 +95,12 @@
                         <label for="firstname">First Name</label>
                         <input type="text" id="firstname" name="firstname" 
                                value="<?php echo htmlspecialchars($membership['firstname']); ?>" 
-                               required>
+                               required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                         
                         <label for="lastname">Last Name</label>
                         <input type="text" id="lastname" name="lastname" 
                                value="<?php echo htmlspecialchars($membership['lastname']); ?>" 
-                               required>
+                               required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
                         
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" 
@@ -110,7 +110,7 @@
                         <label for="loginID">Login ID</label>
                         <input type="text" id="loginID" name="loginID" 
                                value="<?php echo htmlspecialchars($membership['loginID']); ?>" 
-                               required>
+                               required pattern="^[A-Za-z0-9]+$" title="Letters and numbers only">
                     </fieldset>
                     
                     <div class="editform-actions">

@@ -109,12 +109,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <!-- Personal Info -->
             <div class="form-group">
                 <label for="firstname">First Name *</label>
-                <input type="text" id="firstname" name="firstname" required>
+                <input type="text" id="firstname" name="firstname" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
             </div>
 
             <div class="form-group">
                 <label for="lastname">Last Name *</label>
-                <input type="text" id="lastname" name="lastname" required>
+                <input type="text" id="lastname" name="lastname" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
             </div>
 
             <div class="form-group">
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="form-group">
                 <label for="city">City / Town *</label>
-                <input type="text" id="city" name="city" required>
+                <input type="text" id="city" name="city" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
             </div>
 
             <div class="form-group">

@@ -96,12 +96,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST" action="" class="enquiry-form">
             <div class="form-group">
                 <label for="firstname">First Name *</label>
-                <input type="text" id="firstname" name="firstname" required>
+                <input type="text" id="firstname" name="firstname" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
             </div>
 
             <div class="form-group">
                 <label for="lastname">Last Name *</label>
-                <input type="text" id="lastname" name="lastname" required>
+                <input type="text" id="lastname" name="lastname" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" title="Letters, spaces, apostrophes and hyphens only">
             </div>
 
             <div class="form-group">
@@ -111,12 +111,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="form-group">
                 <label for="loginID">Login ID *</label>
-                <input type="text" id="loginID" name="loginID" required>
+                <input type="text" id="loginID" name="loginID" required pattern="^[A-Za-z0-9]+$" title="Letters and numbers only">
             </div>
 
             <div class="form-group">
                 <label for="password">Password *</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required pattern="^[A-Za-z0-9]+$" title="Letters and numbers only">
             </div>
 
             <div class="form-actions">
