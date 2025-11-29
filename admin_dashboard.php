@@ -68,6 +68,11 @@ mysqli_close($conn);
                 <span>✉️</span>
                 <span>View Enquiries</span>
             </a>
+             </a>
+               <a href="adminview.php?page=promotionmodule" class="admin-action-btn">
+                <span>🎓</span>
+                <span>View Promotions</span>
+            </a>
         </div>
     </div>
 </div>

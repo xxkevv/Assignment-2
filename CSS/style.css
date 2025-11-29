@@ -3701,6 +3701,16 @@ nav ul li .dropdown-menu a:hover {
     display: block;
 }
 
+/* Safer rule: allow any siblings between checkbox and menu (useful if markup changes) */
+.action-toggle:checked ~ .dropdown-menu {
+    display: block;
+}
+
+/* Hover fallback: show menu on hover (desktop UX) */
+.action-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .dropdown-form {
     margin: 0;
 }
@@ -3873,27 +3883,7 @@ nav ul li .dropdown-menu a:hover {
     background-position: right 15px center;
     background-size: 12px;
     appearance: none;
-    padding-right: 40px;
-}
-
-/* Required field indicators */
-.edit-form label[for]:after {
-    content: " *";
-    color: #e74c3c;
-}
-
-.edit-form label[for]:not([required]):after {
-    content: "";
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.editform-actions {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+    padding-rigent: center;
     margin-top: 40px;
     padding-top: 25px;
     border-top: 2px solid #f0eaf8;
@@ -4402,4 +4392,214 @@ nav ul li .dropdown-menu a:hover {
 .modern-search-btn:hover, .modern-search-btn:focus {
     transform: translateY(-2px) scale(1.04);
     box-shadow: 0 4px 16px 0 rgba(108,75,166,0.18);
+}
+
+/* Admin Module Styles */
+.admin-page {
+    padding: 40px 30px;
+    background: #f9f7fc;
+    min-height: 100vh;
+}
+
+.promo-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.promo-form-section {
+    flex: 1;
+    min-width: 320px;
+}
+
+.promo-form-section h2 {
+    color: #3E2960;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #704b91;
+    padding-bottom: 10px;
+}
+
+.promo-list-section {
+    flex: 2;
+    min-width: 420px;
+}
+
+.promo-list-section h2 {
+    color: #3E2960;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #704b91;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    color: #3E2960;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #e0d2ec;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: #704b91;
+    box-shadow: 0 0 8px rgba(112, 75, 145, 0.2);
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-field {
+    flex: 1;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #704b91, #3E2960);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(112, 75, 145, 0.2);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(112, 75, 145, 0.3);
+}
+
+.modal-container {
+    display: none;
+    padding: 15px;
+    border: 1px solid #eee;
+    background: #fff;
+    margin-top: 8px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-container strong {
+    display: block;
+    color: #3E2960;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.modal-container p {
+    color: #666;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.modal-container img {
+    max-width: 220px;
+    display: block;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.modal-container .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.modal-actions button {
+    padding: 8px 16px;
+    background: #704b91;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-actions button:hover {
+    background: #3E2960;
+}
+
+/* New class names for better organization */
+.promo-flex-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.promo-left {
+    flex: 1;
+    min-width: 320px;
+}
+
+.promo-right {
+    flex: 2;
+    min-width: 420px;
+}
+
+.promo-left h2,
+.promo-right h2 {
+    color: #3E2960;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #704b91;
+    padding-bottom: 10px;
+}
+
+/* Modal display toggle */
+.modal-container.show-block {
+    display: block !important;
+}
+
+/* Cancel button */
+.btn-cancel {
+    background: linear-gradient(135deg, #f1f1f1, #e0e0e0);
+    color: #666;
+    border: 2px solid #ddd;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancel:hover {
+    background: linear-gradient(135deg, #e8e8e8, #d6d6d6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
