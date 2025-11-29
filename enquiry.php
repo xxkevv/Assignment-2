@@ -62,8 +62,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 					name="firstname"
 					required
 					maxlength="25"
-					pattern="[A-Za-z]+" 
-					title="Only alphabetical letters allowed (A–Z)"
+					pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" 
+					title="Letters, spaces, apostrophes and hyphens only"
 					value="<?php echo $userData ? htmlspecialchars($userData['firstname']) : ''; ?>"
 					<?php echo $userData ? 'readonly' : ''; ?>>
                 </div>
@@ -75,8 +75,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 					name="lastname"
 					required
 					maxlength="25"
-					pattern="[A-Za-z]+" 
-					title="Only alphabetical letters allowed (A–Z)"
+					pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$" 
+					title="Letters, spaces, apostrophes and hyphens only"
 					value="<?php echo $userData ? htmlspecialchars($userData['lastname']) : ''; ?>"
 					<?php echo $userData ? 'readonly' : ''; ?>>            
                 </div>

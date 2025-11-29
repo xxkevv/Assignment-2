@@ -111,7 +111,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 type="text"
                 maxlength="20"
                 pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$"
-                title="Letters and spaces only"
+                title="Letters, spaces, apostrophes and hyphens only"
                 required
                 placeholder="Kuching">
 
