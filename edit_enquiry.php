@@ -174,9 +174,9 @@ mysqli_close($conn);
                     </div>
                 </fieldset>
                 
-                <div class="form-actions">
-                    <button type="submit" class="editbtn editbtn-save">Save Changes</button>
-                    <a href="view_enquiry.php" class="editbtn editbtn-cancel">Back</a>
+                <div class="editform-actions">
+                        <button type="submit" name="update" class="editbtn editbtn-save">Save Changes</button>
+                        <a href="view_membership.php" class="editbtn editbtn-cancel">Cancel</a>
                 </div>
             </form>
         </div>

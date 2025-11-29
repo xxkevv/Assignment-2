@@ -374,7 +374,7 @@
 
             <form method="get" action="" class="search-form modern-search-form">
                 <input type="text" name="keyword" placeholder="Search products..." value="<?php echo htmlspecialchars($keyword); ?>" class="search-input modern-search-input">
-                <button type="submit" class="btn modern-search-btn">🔍 Search</button>
+                <button type="submit" class="btn modern-search-btn">Search</button>
             </form>
 
             <div class="product-grid">
