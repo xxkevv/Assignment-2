@@ -3701,16 +3701,6 @@ nav ul li .dropdown-menu a:hover {
     display: block;
 }
 
-/* Safer rule: allow any siblings between checkbox and menu (useful if markup changes) */
-.action-toggle:checked ~ .dropdown-menu {
-    display: block;
-}
-
-/* Hover fallback: show menu on hover (desktop UX) */
-.action-dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 .dropdown-form {
     margin: 0;
 }

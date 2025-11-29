@@ -20,12 +20,6 @@
     <div class="login-container">
             <div class="login-card">
             <h1>LOGIN</h1>
-        <?php
-        if (isset($_SESSION['login_error'])) {
-            echo '<p> Invalid username or password! </p>';
-            unset($_SESSION['login_error']);
-        }
-        ?>
         <form id="detail" method="post" action="login_process.php">
 
             <div class="login-form">
@@ -50,11 +44,12 @@
                 title="Password must be letters or numbers, up to 25 characters."
                 placeholder="Type your password" required></div>
                 
-
-            <div class="forgot">
-            
-            </div>
-
+        <?php
+        if (isset($_SESSION['login_error'])) {
+            echo '<p>Invalid username or password</p>';
+            unset($_SESSION['login_error']);
+        }
+        ?>
         <div class="button-group">
                 <button type="submit" class="login-btn">LOGIN</button>
                 <button type= "reset" class="clear-btn">Reset Form </button>
