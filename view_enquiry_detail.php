@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: view_enquiry_detail.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin view for detail customer enquiries.
+ * Date: 2025
+ */
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -94,12 +100,12 @@ mysqli_close($conn);
             </div>
         
         <div class="detail-actions">
-            <a href="view_enquiry.php" class="back-link">Back to List</a>
+            <a href="adminview.php?page=enquiry" class="back-link">Back to List</a>
         </div>
     <?php else: ?>
         <div class="error-message">
             <p>Enquiry not found or invalid ID.</p>
-            <a href="view_enquiry.php" class="back-link">Back to List</a>
+            <a href="adminview.php?page=enquiry" class="back-link">Back to List</a>
         </div>
     <?php endif; ?>
 </div>

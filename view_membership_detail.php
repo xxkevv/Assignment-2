@@ -1,3 +1,42 @@
+<?php
+/**
+ * Filename: view_membership_detail.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin view for detail membership registration.
+ * Date: 2025
+ */
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Root_Flower";
+
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("Invalid request: Missing or invalid ID");
+}
+
+$id = (int)$_GET['id'];
+$membership = null;
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$stmt = $conn->prepare("SELECT * FROM membership WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    $membership = $result->fetch_assoc();
+} else {
+    die("Membership record not found");
+}
+
+$stmt->close();
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,31 +46,6 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Root_Flower";
-
-// Get membership ID from URL
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-$membership = null;
-
-// Connect to database
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if ($conn) {
-    // Prepare and execute query
-    $stmt = $conn->prepare("SELECT id, firstname, lastname, email, loginID FROM membership WHERE id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $membership = $result->fetch_assoc();
-    
-    $stmt->close();
-    mysqli_close($conn);
-}
-?>
 
 <div class="detail-container">
     <?php if ($membership): ?>
@@ -67,12 +81,12 @@ if ($conn) {
         </div>
         
         <div class="detail-actions">
-            <a href="view_membership.php" class="back-link">Back to List</a>
+            <a href="adminview.php?page=membership" class="back-link">Back to List</a>
         </div>
     <?php else: ?>
         <div class="error-message">
             <p>Membership not found or invalid ID.</p>
-            <a href="view_membership.php" class="back-link">Back to List</a>
+            <a href="adminview.php?page=membership" class="back-link">Back to List</a>
         </div>
     <?php endif; ?>
 </div>

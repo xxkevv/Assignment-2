@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: product2.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Product page for CNY-decoration.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

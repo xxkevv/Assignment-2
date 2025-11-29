@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: acknowledge.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Page to acknowledge third-party content and resources.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

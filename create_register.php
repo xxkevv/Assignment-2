@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: create_register.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin page to create a new workshop registration.
+ * Date: 2025
+ */
 // Redirect if accessed directly
 if (basename($_SERVER['PHP_SELF']) == 'create_register.php' && !isset($_SERVER['HTTP_REFERER'])) {
     header("Location: adminview.php?page=register");

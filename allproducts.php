@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: allproducts.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Page displaying all available products.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

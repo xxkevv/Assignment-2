@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: view_register.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin view for workshop registrations.
+ * Date: 2025
+ */
 if (basename($_SERVER['PHP_SELF']) == 'view_register.php') {
     header("Location: adminview.php?page=workshop");
     exit();
@@ -50,7 +56,6 @@ mysqli_close($conn);
 ?>
 
 
-<link rel="stylesheet" href="styles.css">
 <div class="admin-page">
     <div class="page-title-row">
         <h1 class="page-title">Workshops</h1>

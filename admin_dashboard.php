@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: admin_dashboard.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Dashboard content for the admin panel.
+ * Date: 2025
+ */
 $servername = "localhost";
 $username = "root";
 $password = "";

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: register.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Registration page for workshops.
+ * Date: 2025
+ */
 session_start();
 
 $userData = null;

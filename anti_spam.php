@@ -1,5 +1,11 @@
 <?php
-// anti_spam.php - Anti-spam protection system
+/**
+ * Filename: anti_spam.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Anti-spam protection system functions.
+ * Date: 2025
+ */
+
 
 /**
  * Get user identifier (IP address or user ID if logged in)

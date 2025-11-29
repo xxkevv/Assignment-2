@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: aside.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Sidebar for product categories.
+ * Date: 2025
+ */
     echo
         '<aside class="sidebar">
             <h2>Flower Categories</h2>

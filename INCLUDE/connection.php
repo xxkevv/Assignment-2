@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: connection.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Database connection script.
+ * Date: 2025
+ */
 $servername = "localhost";
 $username = "root";
 $password = "";

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: edit_enquiry.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin page to edit an existing enquiry.
+ * Date: 2025
+ */
 $servername = "localhost";
 $username = "root";
 $password = "";

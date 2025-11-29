@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: edit_membership.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin page to edit an existing membership.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

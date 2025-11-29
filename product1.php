@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: product1.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Product page for Hand-bouquet.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

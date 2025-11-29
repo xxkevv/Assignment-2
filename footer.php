@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: footer.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Footer for all pages.
+ * Date: 2025
+ */
     echo'
     <footer class="footer-content">
         <div class="footer-container">
@@ -7,7 +13,8 @@
                 <ul class="box">
                     <li> <a href="enhancement.php">Enhancement</a></li>
                     <li> <a href="acknowledge.php">Acknowledge</a></li>
-                    <li> <a href="https://youtu.be/Wnv-ve2rwts?si=N3-SYA9JKMNv45jn">Group Presentation</a>
+                    <li> <a href="https://youtu.be/Wnv-ve2rwts?si=N3-SYA9JKMNv45jn">Group Presentation</a> </li>
+                    <li> <a href="#">Group Presentation 2 </a> </li>
                 </ul>
             </div>
             <div class="quicklinks">

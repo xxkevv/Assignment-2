@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: view_register_detail.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin view for customer detail workshop registration.
+ * Date: 2025
+ */
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -33,7 +39,15 @@ $stmt->close();
 mysqli_close($conn);
 ?>
 
-<link rel="stylesheet" href="CSS/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Details - Root & Flower</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
 
 <div class="detail-container">
     <?php if ($workshop): ?>
@@ -93,12 +107,15 @@ mysqli_close($conn);
         </div>
         
         <div class="detail-actions">
-            <a href="view_register.php" class="back-link">Back to List</a>
+            <a href="adminview.php?page=workshop" class="back-link">Back to List</a>
         </div>
     <?php else: ?>
         <div class="error-message">
             <p>Workshop record not found.</p>
-            <a href="view_register.php" class="back-link">Back to List</a>
+            <a href="adminview.php?page=workshop" class="back-link">Back to List</a>
         </div>
     <?php endif; ?>
 </div>
+
+</body>
+</html>

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: membership.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Membership registration page.
+ * Date: 2025
+ */
+?>
 <!doctype html>
 <html lang="en">
 <head>

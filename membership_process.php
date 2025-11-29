@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: membership_process.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Process membership registration form submission.
+ * Date: 2025
+ */
 // Include anti-spam protection
 require_once 'anti_spam.php';
 

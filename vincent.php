@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: vincent.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Profile page for Vincent.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

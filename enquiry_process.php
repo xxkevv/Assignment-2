@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: enquiry_process.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Process enquiry form submission.
+ * Date: 2025
+ */
 // Include anti-spam protection
 require_once 'anti_spam.php';
 

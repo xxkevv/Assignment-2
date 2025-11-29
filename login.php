@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: login.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Login page for users and admins.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

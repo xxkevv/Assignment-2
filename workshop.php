@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: workshop.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Workshop page.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

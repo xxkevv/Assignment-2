@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: adminview.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Main dashboard layout for the admin panel.
+ * Date: 2025
+ */
 session_start();
 
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: edit_register.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin page to edit an existing workshop registration.
+ * Date: 2025
+ */
 $servername = "localhost";
 $username = "root";
 $password = "";

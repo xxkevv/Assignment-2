@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: logout.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Handle user logout.
+ * Date: 2025
+ */
 session_start();
 
 $_SESSION = array();

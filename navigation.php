@@ -1,4 +1,10 @@
 <?php 
+/**
+ * Filename: navigation.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Navigation bar component included in all pages.
+ * Date: 2025
+ */
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }

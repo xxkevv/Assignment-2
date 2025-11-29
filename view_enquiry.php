@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: view_enquiry.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin view for customer enquiries.
+ * Date: 2025
+ */
 // Redirect if accessed directly
 if (basename($_SERVER['PHP_SELF']) == 'view_enquiry.php') {
     header("Location: adminview.php?page=enquiry");
@@ -52,16 +58,6 @@ $result = mysqli_query($conn, $sql);
 $enquiries = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Enquiries - Root & Flower</title>
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
 
 <div class="admin-page">
     <div class="page-title-row">
@@ -119,6 +115,3 @@ mysqli_close($conn);
         </div>
     <?php endif; ?>
 </div>
-
-</body>
-</html>

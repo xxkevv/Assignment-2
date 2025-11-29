@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: enquiry.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Customer enquiry form page.
+ * Date: 2025
+ */
 session_start();
 
 // Get user data if logged in

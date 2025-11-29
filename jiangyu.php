@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: jiangyu.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Profile page for Jiangyu.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

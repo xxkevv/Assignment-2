@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: create_enquiry.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin page to create a new enquiry.
+ * Date: 2025
+ */
 // Redirect if accessed directly
 if (basename($_SERVER['PHP_SELF']) == 'create_enquiry.php' && !isset($_SERVER['HTTP_REFERER'])) {
     header("Location: adminview.php?page=enquiry");

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: index.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Home menu of root flower website.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

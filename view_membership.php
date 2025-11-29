@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: view_membership.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Admin view for membership registrations.
+ * Date: 2025
+ */
 if (basename($_SERVER['PHP_SELF']) == 'view_membership.php' && !isset($_GET['show_create'])) {
     header("Location: adminview.php?page=membership");
     exit();
@@ -62,8 +68,6 @@ $memberships = $result->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 mysqli_close($conn);
 ?>
-
-<link rel="stylesheet" href="styles.css">
 
 <div class="admin-page">
     <div class="page-title-row">

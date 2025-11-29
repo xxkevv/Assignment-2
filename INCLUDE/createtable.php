@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: createtable.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Script to create database tables.
+ * Date: 2025
+ */
 
 $servername = "localhost";
 $username = "root";

@@ -1,3 +1,11 @@
+<?php
+/**
+ * Filename: ahmedHassan.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Profile page for Ahmed Hassan.
+ * Date: 2025
+ */
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

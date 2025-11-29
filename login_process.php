@@ -1,4 +1,10 @@
 <?php
+/**
+ * Filename: login_process.php
+ * Author: Kevinn Jose, Jiang Yu, Vincent, Ahmed
+ * Description: Process login form submission.
+ * Date: 2025
+ */
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

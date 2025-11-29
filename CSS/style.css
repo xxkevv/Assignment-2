@@ -4089,20 +4089,6 @@ nav ul li .dropdown-menu a:hover {
     text-align: center;
 }
 
-.user-profile-photo {
-    width: 110px;
-    height: 110px;
-    max-width: 110px;
-    max-height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #f3f0fa;
-    margin-bottom: 12px;
-    border: 3px solid #e0d2ec;
-    box-shadow: 0 2px 8px rgba(112,75,145,0.08);
-    display: block;
-}
-
 .user-profile-form {
     width: 100%;
     display: flex;
@@ -4115,6 +4101,7 @@ nav ul li .dropdown-menu a:hover {
     font-weight: 600;
     color: #3E2960;
     margin-bottom: 6px;
+    display: block;
 }
 
 .user-profile-input {
@@ -4149,16 +4136,6 @@ nav ul li .dropdown-menu a:hover {
 
 .user-profile-btn:hover {
     background: #3E2960;
-}
-
-.user-profile-photo-upload {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.user-profile-photo-upload input[type="file"] {
-    margin-top: 6px;
-    font-size: 0.95rem;
 }
 
 .message-box.success {
@@ -4408,4 +4385,58 @@ nav ul li .dropdown-menu a:hover {
 .modern-search-btn:hover, .modern-search-btn:focus {
     transform: translateY(-2px) scale(1.04);
     box-shadow: 0 4px 16px 0 rgba(108,75,166,0.18);
+}
+
+/* Enhancement Selection Page */
+.enhancement-selection {
+    padding: 60px 20px;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.enhancement-selection h1 {
+    color: #3E2960;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.selection-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selection-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.selection-card h2 {
+    color: #704b91;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.selection-card p {
+    margin-bottom: 30px;
+    color: #666;
+    line-height: 1.6;
 }
